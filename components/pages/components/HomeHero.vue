@@ -14,16 +14,12 @@
               <h4 class="description">{{ $t('message.subtitle') }}</h4>
               <br />
               <div class="buttons">
-                <a
-                  href="#investors"
-                  class="btn bg-transparent btn-lg mr-3 cta-button"
-                  ><b>{{ $t('message.for_investors') }}</b></a
-                >
-                <a
-                  href="#growers"
-                  class="btn bg-transparent btn-lg mr-3 cta-button"
-                  ><b>{{ $t('message.for_growers') }}</b></a
-                >
+                <a href="#investors" class="btn bg-transparent btn-lg mr-3 cta-button">
+                  <b>{{ $t('message.for_investors') }}</b>
+                </a>
+                <a href="#growers" class="btn bg-transparent btn-lg mr-3 cta-button">
+                  <b>{{ $t('message.for_growers') }}</b>
+                </a>
               </div>
             </div>
           </div>
@@ -35,31 +31,31 @@
 
 <script>
 export default {
-  name: 'Hero',
+  name: "Hero",
   i18n: {
     messages: {
       en: {
         message: {
-          header: 'Financial Solutions for Cannabis Growers',
+          header: "Financial Solutions for Cannabis Growers",
           subtitle:
-            'Cannvest connects investors and cannabis growers, improving their crop valuation through traceability and crop optmization technologies on the blockchain',
-          for_investors: 'For Investors',
-          for_growers: 'For Growers'
+            "Cannvest connects investors and cannabis growers, improving their crop valuation through traceability and crop optmization technologies on the blockchain",
+          for_investors: "For Investors",
+          for_growers: "For Growers"
         }
       },
       es: {
         message: {
           // header: 'SOLUCIONES FINANCIERAS PARA PRODUCTORES DE CANNABIS',
-          header: 'Soluciones financieras para productores de cannabis',
+          header: "Soluciones financieras para productores de cannabis",
           subtitle:
-            'Cannvest conecta inversionistas con productores de cannabis, mejorando la valoración de su cosecha a través de tecnologías de optimización y trazabilidad de cultivos sobre blockchain',
-          for_investors: 'Para Inversionistas',
-          for_growers: 'Para Productores'
+            "Cannvest conecta inversionistas con productores de cannabis, mejorando la valoración de su cosecha a través de tecnologías de optimización y trazabilidad de cultivos sobre blockchain",
+          for_investors: "Para Inversionistas",
+          for_growers: "Para Productores"
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -69,5 +65,15 @@ export default {
 }
 .cta-button:hover {
   background-color: #00ab81 !important;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
 }
 </style>

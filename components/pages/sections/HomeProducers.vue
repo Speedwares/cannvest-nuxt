@@ -27,17 +27,12 @@
             <div class="info-horizontal row">
               <div class="col-3 icon-container">
                 <div class="icon-circle text-center">
-                  <img
-                    src="img/icons/environmental-monitoring.svg"
-                    class="img-fluid"
-                  />
+                  <img src="img/icons/environmental-monitoring.svg" class="img-fluid" />
                 </div>
               </div>
               <div class="col-9 description">
                 <h5 class="info-title">{{ $t('message.infrastructure') }}</h5>
-                <p class="description">
-                  {{ $t('message.text_infrastructure') }}
-                </p>
+                <p class="description">{{ $t('message.text_infrastructure') }}</p>
               </div>
             </div>
             <div class="info-horizontal row">
@@ -60,47 +55,47 @@
 </template>
 <script>
 export default {
-  name: 'Producers',
+  name: "Producers",
   i18n: {
     messages: {
       en: {
         message: {
-          title: 'For Producers',
-          funding: 'Project Selection and Funding',
+          title: "For Producers",
+          funding: "Project Selection and Funding",
           text_funding:
-            'Our team evaluates the project and designs a custom financial product, convenient for the growers and their investors. The project is published and funded.',
-          infrastructure: 'Technology and Infrastructure Installation',
+            "Our team evaluates the project and designs a custom financial product, convenient for the growers and their investors. The project is published and funded.",
+          infrastructure: "Technology and Infrastructure Installation",
           text_infrastructure:
-            'Our team installs sensors and cameras on the field and provides a free-to-use mobile app for crop management, improving the productivity of the project.',
-          optimization: 'Crop Optimization',
+            "Our team installs sensors and cameras on the field and provides a free-to-use mobile app for crop management, improving the productivity of the project.",
+          optimization: "Crop Optimization",
           text_optimization:
-            'Use the data to develop crop optimization strategies. Be more productive and get access to new markets.'
+            "Use the data to develop crop optimization strategies. Be more productive and get access to new markets."
         }
       },
       es: {
         message: {
-          title: 'Para Productores',
-          funding: 'Selección de Proyecto y Financiación',
+          title: "Para Productores",
+          funding: "Selección de Proyecto y Financiación",
           text_funding:
-            'Evaluamos su proyecto y diseñamos un producto financiero a la medida. El proyecto es publicado y financiado a través de nuestra plataforma.',
-          infrastructure: 'Instalación de Infraestructura',
+            "Evaluamos su proyecto y diseñamos un producto financiero a la medida. El proyecto es publicado y financiado a través de nuestra plataforma.",
+          infrastructure: "Instalación de Infraestructura",
           text_infrastructure:
-            'Nuestro equipo instala sensores e infraestructura y provee acesso a una aplicación de gestión de cultivos.',
-          optimization: 'Optimización de cultivos',
+            "Nuestro equipo instala sensores e infraestructura y provee acesso a una aplicación de gestión de cultivos.",
+          optimization: "Optimización de cultivos",
           text_optimization:
-            'Use los datos para diseñar estrategias de mejora de cultivos. Sea más productivo y obtenga aceceso a nuevos mercados.'
+            "Use los datos para diseñar estrategias de mejora de cultivos. Sea más productivo y obtenga aceceso a nuevos mercados."
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .icon-circle {
   background-color: white;
   border-radius: 50%;
-  padding: 2em;
+  padding: 1em;
   max-width: 130px;
 }
 .icon-container {

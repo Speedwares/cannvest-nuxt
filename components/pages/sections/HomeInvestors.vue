@@ -98,7 +98,7 @@ export default {
 .icon-circle {
   background-color: white;
   border-radius: 50%;
-  padding: 2em;
+  padding: 1em;
   max-width: 130px;
 }
 .icon-container {
