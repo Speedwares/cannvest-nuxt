@@ -46,7 +46,7 @@
         </div>
         <div class="col-md-7">
           <div class="tablet-container">
-            <img v-lazy="'img/ipad2-inverted.png'" />
+            <img v-lazy="'img/home-page/cannvest-technology.png'" />
           </div>
         </div>
       </div>
