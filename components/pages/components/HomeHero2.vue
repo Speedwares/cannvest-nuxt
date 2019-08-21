@@ -3,7 +3,7 @@
     <div class="page-header header-filter">
       <div
         class="page-header-image"
-        style="background-image: url('img/home-page/cannvest-banner.jpg')"
+        style="background-image: linear-gradient(#011f17,#197d52)"
       ></div>
       <div class="content-center">
         <div class="container">
@@ -26,6 +26,12 @@
                 >
               </div>
             </div>
+            <div class="col-md-5">
+              <img
+                src="img/home-page/cannvest-isometric.png"
+                class="fluid d-none d-md-block"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -35,7 +41,7 @@
 
 <script>
 export default {
-  name: 'Hero',
+  name: 'Hero2',
   i18n: {
     messages: {
       en: {
@@ -69,5 +75,8 @@ export default {
 }
 .cta-button:hover {
   background-color: #00ab81 !important;
+}
+
+@media screen and (min-width: 768px) {
 }
 </style>

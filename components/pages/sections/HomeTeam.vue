@@ -7,10 +7,7 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
           <h2 class="title">{{ $t('message.title') }}</h2>
-          <h4 class="description">
-            This is the paragraph where you can write more details about your
-            team. Keep you user engaged by providing meaningful information.
-          </h4>
+          <h4 class="description">{{ $t('message.description') }}</h4>
         </div>
       </div>
       <div class="row">
@@ -101,12 +98,11 @@
   </div>
 </template>
 <script>
-import { Card, Tabs, TabPane } from '@/components'
+import { Tabs, TabPane } from '@/components'
 import HomeTeamCards from '@/components/pages/components/Cards/HomeTeamCards.vue'
 export default {
   name: 'Team',
   components: {
-    Card,
     Tabs,
     TabPane,
     HomeTeamCards
@@ -116,6 +112,7 @@ export default {
       en: {
         message: {
           title: 'Our Team and Advisors',
+          description: 'This is the description',
           team: 'Team',
           advisors: 'Advisors',
           ceo_description: 'CEO Nuestro Equipo y Asesores',
@@ -134,6 +131,7 @@ export default {
       es: {
         message: {
           title: 'Nuestro Equipo y Asesores',
+          description: 'Esta es la descripción',
           team: 'Equipo',
           advisors: 'Asesores',
           ceo_description: 'CEO Nuestro Equipo y Asesores',
