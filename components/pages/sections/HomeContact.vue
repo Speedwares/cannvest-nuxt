@@ -87,4 +87,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style scoped>
+.section-image::after {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+</style>
