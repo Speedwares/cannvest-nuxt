@@ -1,7 +1,7 @@
 <template>
   <div
     class="team-5 section-image"
-    style="background-image: url('img/project9.jpg')"
+    style="background-image: url('img/home-page/team-background.png')"
   >
     <div class="container">
       <div class="row">
@@ -98,10 +98,10 @@
   </div>
 </template>
 <script>
-import { Tabs, TabPane } from '@/components'
-import HomeTeamCards from '@/components/pages/components/Cards/HomeTeamCards.vue'
+import { Tabs, TabPane } from "@/components";
+import HomeTeamCards from "@/components/pages/components/Cards/HomeTeamCards.vue";
 export default {
-  name: 'Team',
+  name: "Team",
   components: {
     Tabs,
     TabPane,
@@ -111,49 +111,53 @@ export default {
     messages: {
       en: {
         message: {
-          title: 'Our Team and Advisors',
-          description: 'This is the description',
-          team: 'Team',
-          advisors: 'Advisors',
-          ceo_description: 'CEO Nuestro Equipo y Asesores',
-          coo_description: 'COO Nuestro Equipo y Asesores',
-          cto_description: 'CTO Nuestro Equipo y Asesores',
-          data_scientist: 'Analytics Consultant',
-          data_scientist_description: 'Analytics Consultant',
-          industrial_advisor: 'Industrial Advisor',
-          industrial_advisor_description: 'Industrial Advisor',
-          startup_advisor: 'Startup Advisor',
-          startup_advisor_description: 'Startup Advisor',
-          blockchain_consultant: 'Blockchain Consultant',
-          blockchain_consultant_description: 'Blockchain Consultant'
+          title: "Our Team and Advisors",
+          description: "This is the description",
+          team: "Team",
+          advisors: "Advisors",
+          ceo_description: "CEO Nuestro Equipo y Asesores",
+          coo_description: "COO Nuestro Equipo y Asesores",
+          cto_description: "CTO Nuestro Equipo y Asesores",
+          data_scientist: "Analytics Consultant",
+          data_scientist_description: "Analytics Consultant",
+          industrial_advisor: "Industrial Advisor",
+          industrial_advisor_description: "Industrial Advisor",
+          startup_advisor: "Startup Advisor",
+          startup_advisor_description: "Startup Advisor",
+          blockchain_consultant: "Blockchain Consultant",
+          blockchain_consultant_description: "Blockchain Consultant"
         }
       },
       es: {
         message: {
-          title: 'Nuestro Equipo y Asesores',
-          description: 'Esta es la descripción',
-          team: 'Equipo',
-          advisors: 'Asesores',
-          ceo_description: 'CEO Nuestro Equipo y Asesores',
-          coo_description: 'COO Nuestro Equipo y Asesores',
-          cto_description: 'CTO Nuestro Equipo y Asesores',
-          data_scientist: 'Consultora en Analítica de Datos',
-          data_scientist_description: 'Analytics Consultant',
-          industrial_advisor: 'Asesor Industrial',
-          industrial_advisor_description: 'Industrial Advisor',
-          startup_advisor: 'Asesor de Startups',
-          startup_advisor_description: 'Startup Advisor',
-          blockchain_consultant: 'Consultora en Blockchain',
-          blockchain_consultant_description: 'Blockchain Consultant'
+          title: "Nuestro Equipo y Asesores",
+          description: "Esta es la descripción",
+          team: "Equipo",
+          advisors: "Asesores",
+          ceo_description: "CEO Nuestro Equipo y Asesores",
+          coo_description: "COO Nuestro Equipo y Asesores",
+          cto_description: "CTO Nuestro Equipo y Asesores",
+          data_scientist: "Consultora en Analítica de Datos",
+          data_scientist_description: "Analytics Consultant",
+          industrial_advisor: "Asesor Industrial",
+          industrial_advisor_description: "Industrial Advisor",
+          startup_advisor: "Asesor de Startups",
+          startup_advisor_description: "Startup Advisor",
+          blockchain_consultant: "Consultora en Blockchain",
+          blockchain_consultant_description: "Blockchain Consultant"
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.team-5 [class*='col-md-']:nth-child(2) {
+.team-5 [class*="col-md-"]:nth-child(2) {
   margin-top: 50px;
+}
+
+.section-image::after {
+  background-color: rgba(0, 0, 0, 0);
 }
 </style>
