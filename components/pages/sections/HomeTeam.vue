@@ -1,7 +1,7 @@
 <template>
   <div
     class="team-5 section-image"
-    style="background-image: url('img/home-page/team-background.png')"
+    style="background-image: url('img/home-page/team-background.jpg')"
   >
     <div class="container">
       <div class="row">

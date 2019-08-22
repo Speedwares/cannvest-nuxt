@@ -1,7 +1,9 @@
 <template>
   <div class="header-1">
-    <div class="page-header header-filter">
-      <div class="page-header-image" style="background-image: url('img/home-page/cannavist.png')"></div>
+    <div
+      class="features-7 section-image"
+      style="background-image: url('img/home-page/cannavist.png')"
+    >
       <div class="content-center">
         <div class="container">
           <div class="row">
@@ -67,7 +69,13 @@ export default {
   background-color: #00ab81 !important;
 }
 
-.page-header:before {
-  background-color: rgba(0, 0, 0, 0);
+.features-7 {
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .features-7:after {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
 </style>
