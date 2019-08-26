@@ -1,17 +1,17 @@
 <template>
   <div>
-    <main-navbar :color-on-scroll="0"></main-navbar>
+    <cannvest-navbar :color-on-scroll="300" />
     <nuxt />
-    <main-footer></main-footer>
+    <!-- <main-footer></main-footer> -->
   </div>
 </template>
 <script>
-import MainNavbar from "@/components/layout/MainNavbar.vue";
+import CannvestNavbar from "@/components/layout/CannvestNavbar.vue";
 import MainFooter from "@/components/layout/MainFooter.vue";
 export default {
   components: {
     MainFooter,
-    MainNavbar
+    CannvestNavbar
   }
 };
 </script>

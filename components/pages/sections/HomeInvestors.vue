@@ -17,10 +17,7 @@
             <div class="info-horizontal row">
               <div class="col-3 icon-container">
                 <div class="icon-circle text-center">
-                  <img
-                    src="img/icons/investor-information.svg"
-                    class="img-fluid"
-                  />
+                  <img src="img/icons/investor-information.svg" class="img-fluid" />
                 </div>
               </div>
               <div class="col-9 description">
@@ -58,40 +55,40 @@
 </template>
 <script>
 export default {
-  name: 'Investors',
+  name: "Investors",
   i18n: {
     messages: {
       en: {
         message: {
-          title: 'For Investors',
-          register: 'Register',
+          title: "For Investors",
+          register: "Register",
           text_register:
-            'Sign up for our investor network to get access to our investment portfolio.',
-          invest: 'Invest',
+            "Sign up for our investor network to get access to our investment portfolio.",
+          invest: "Invest",
           text_invest:
-            'A Smart Contract on the Blockchain is signed between you and your debtors. Track how the funds are being used in an efficient and transparent way.',
-          return: 'Follow-up and Return on Investment',
+            "A Smart Contract on the Blockchain is signed between you and your debtors. Track how the funds are being used in an efficient and transparent way.",
+          return: "Follow-up and Return on Investment",
           text_return:
-            'Receive weekly reports on the project progress and performance. Get interests payments and a return on your investment according to the negotiated conditions.'
+            "Receive weekly reports on the project progress and performance. Get interests payments and a return on your investment according to the negotiated conditions."
         }
       },
       es: {
         message: {
-          title: 'Para Inversionistas',
-          register: 'Regístrese',
+          title: "Para Inversionistas",
+          register: "Regístrese",
           text_register:
-            'Regístrese dentro de nuestra red de inversionistas para obtener acceso a nuestro portafolio de inversión.',
-          invest: 'Invierta',
+            "Regístrese dentro de nuestra red de inversionistas para obtener acceso a nuestro portafolio de inversión.",
+          invest: "Invierta",
           text_invest:
-            'Un contrato inteligente es firmado entre usted y los productores. Haga un seguimiento del uso de los fondos de una forma eficiente y transparente.',
-          return: 'Seguimiento y Retorno a la Inversión',
+            "Un contrato inteligente es firmado entre usted y los productores. Haga un seguimiento del uso de los fondos de una forma eficiente y transparente.",
+          return: "Seguimiento y Retorno a la Inversión",
           text_return:
-            'Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión.'
+            "Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión."
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

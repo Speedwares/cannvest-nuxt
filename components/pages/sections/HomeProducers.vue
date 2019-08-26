@@ -1,7 +1,7 @@
 <template>
   <div
     class="features-7 section-image"
-    style="background-image: url('img/home-page/growers-background.jpg')"
+    style="background-image: url('img/home-page/growers-background-02.jpg')"
   >
     <div class="col-md-8 mr-auto ml-auto text-center">
       <h2 class="title">{{ $t('message.title') }}</h2>
@@ -101,16 +101,5 @@ export default {
 }
 .icon-container {
   padding-right: 0;
-}
-
-@media screen and (min-width: 768px) {
-  h2,
-  h5,
-  p {
-    color: #2c2c2c !important;
-  }
-  .features-7:after {
-    background-color: rgba(0, 0, 0, 0.1) !important;
-  }
 }
 </style>
