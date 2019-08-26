@@ -73,6 +73,10 @@ export default {
   min-height: 100vh;
 }
 
+.features-7:after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media screen and (min-width: 768px) {
   .features-7:after {
     background-color: rgba(0, 0, 0, 0);

@@ -5,42 +5,30 @@
         <div class="col-md-5">
           <h2 class="title">{{ $t('message.title') }}</h2>
           <div class="info info-horizontal">
-            <div class="icon icon-success icon-circle">
-              <i class="now-ui-icons location_world"></i>
+            <div class="icon icon-circle">
+              <img src="img/icons/internet-of-things.svg" class="img-fluid" />
             </div>
             <div class="description">
-              <h4 class="info-title">Hundreds of Components</h4>
-              <p>
-                The moment you use Now UI Kit, you know you’ve never felt
-                anything like it. With a single use lets you do more than ever
-                before.
-              </p>
+              <h4 class="info-title">{{ $t('message.iot') }}</h4>
+              <p>{{ $t('message.text_iot') }}</p>
             </div>
           </div>
           <div class="info info-horizontal">
-            <div class="icon icon-success icon-circle">
-              <i class="now-ui-icons sport_user-run"></i>
+            <div class="icon icon-circle">
+              <img src="img/icons/digital-signature.svg" class="img-fluid" />
             </div>
             <div class="description">
-              <h4 class="info-title">Easy to Use</h4>
-              <p>
-                Divide details about your product or agency work into parts.
-                Write a few lines about each one. A paragraph describing a
-                feature.
-              </p>
+              <h4 class="info-title">{{ $t('message.encryption') }}</h4>
+              <p>{{ $t('message.text_encryption') }}</p>
             </div>
           </div>
           <div class="info info-horizontal">
-            <div class="icon icon-success icon-circle">
-              <i class="now-ui-icons ui-2_time-alarm"></i>
+            <div class="icon icon-circle">
+              <img src="img/icons/fintech.svg" class="img-fluid" />
             </div>
             <div class="description">
-              <h4 class="info-title">Fast Prototyping</h4>
-              <p>
-                Divide details about your product or agency work into parts.
-                Write a few lines about each one. A paragraph describing a
-                feature.
-              </p>
+              <h4 class="info-title">{{ $t('message.analytics') }}</h4>
+              <p>{{ $t('message.text_analytics') }}</p>
             </div>
           </div>
         </div>
@@ -55,50 +43,63 @@
 </template>
 <script>
 export default {
-  name: 'Technology',
+  name: "Technology",
   i18n: {
     messages: {
       en: {
         message: {
-          title: 'Our Technology',
-          register: 'Register',
-          text_register:
-            'Sign up for our investor network to get access to our investment portfolio.',
-          invest: 'Invest',
-          text_invest:
-            'A Smart Contract on the Blockchain is signed between you and your debtors. Track how the funds are being used in an efficient and transparent way.',
-          return: 'Follow-up and Return on Investment',
-          text_return:
-            'Receive weekly reports on the project progress and performance. Get interests payments and a return on your investment according to the negotiated conditions.'
+          title: "Our Technology",
+          iot: "Interet of Things",
+          text_iot:
+            "Our sensor technology measures the ambient and process conditions in for analysis and intelligent decision making.",
+          encryption: "Data storage and encryption",
+          text_encryption:
+            "Data is encrypted and stored in a secure way on a private blockchain ensuring transparency and data inmutability.",
+          analytics: "Data Analytics",
+          text_analytics:
+            "Our team analyses the crop data to provide insights for production improvement."
         }
       },
       es: {
         message: {
-          title: 'Nuestra Tecnología',
-          register: 'Regístrese',
-          text_register:
-            'Regístrese dentro de nuestra red de inversionistas para obtener acceso a nuestro portafolio de inversión.',
-          invest: 'Invierta',
-          text_invest:
-            'Un contrato inteligente es firmado entre usted y los productores. Haga un seguimiento del uso de los fondos de una forma eficiente y transparente.',
-          return: 'Seguimiento y Retorno a la Inversión',
-          text_return:
-            'Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión.'
+          title: "Nuestra Tecnología",
+          iot: "Internet de las Cosas",
+          text_iot:
+            "Nuestra tecnología de sensores registra las variables ambientales y de proceso del cultivo para su análisis y toma de decisiones inteligentes.",
+          encryption: "Almacenamiento y encriptado de datos",
+          text_encryption:
+            "Los datos son encriptados y almacenados de forma segura en un blockchain privado asegurando transparencia e inmutabilidad de los datos.",
+          analytics: "Analítica de datos",
+          text_analytics:
+            "Nuestro equipo analiza la información de cultivo para brindar información útil para el mejoramiento de su productividad."
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .icon-circle {
   background-color: white;
   border-radius: 50%;
-  padding: 2em;
+  padding: 1em;
   max-width: 130px;
 }
-.icon-container {
-  padding-right: 0;
+
+@media screen and (min-width: 768px) {
+  .tablet-container {
+    margin-top: 250px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .tablet-container {
+    margin-top: 180px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .tablet-container {
+    margin-top: 80px;
+  }
 }
 </style>

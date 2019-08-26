@@ -56,6 +56,7 @@
 <script>
 export default {
   name: "Producers",
+  components: {},
   i18n: {
     messages: {
       en: {
