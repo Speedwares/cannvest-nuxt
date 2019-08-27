@@ -82,7 +82,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <!-- <n-checkbox>I'm not a robot</n-checkbox> -->
-                  <div data-netlify-recaptcha="true"></div>
+                  <!-- <div data-netlify-recaptcha="true"></div> -->
                 </div>
                 <div class="col-md-6">
                   <input
