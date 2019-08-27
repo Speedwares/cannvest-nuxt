@@ -28,47 +28,60 @@
             </p>
           </info-section>
         </div>
-        <!-- <div class="col-md-5 ml-auto mr-auto">
+        <div class="col-md-5 ml-auto mr-auto">
           <card type="contact" raised header-classes="text-center">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-
-            <div class="row">
-              <div class="col-md-6 pr-2">
-                <label>{{ $t('message.first_name') }}</label>
+            <form name="contact" action method="POST" netlify>
+              <input type="hidden" name="contact-form" value="contact" />
+              <div class="row">
+                <div class="col-md-6 pr-2">
+                  <label for="first-name">{{ $t('message.first_name') }}</label>
+                  <fg-input
+                    :placeholder="$t('message.first_name')"
+                    addon-left-icon="now-ui-icons users_circle-08"
+                    name="first-name"
+                    id="first-name"
+                  ></fg-input>
+                </div>
+                <div class="col-md-6 pl-2">
+                  <label for="last-name">{{ $t('message.last_name') }}</label>
+                  <fg-input
+                    :placeholder="$t('message.last_name')"
+                    addon-left-icon="now-ui-icons text_caps-small"
+                    name="last-name"
+                    id="last-name"
+                  ></fg-input>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">{{ $t('message.email') }}</label>
                 <fg-input
-                  :placeholder="$t('message.first_name')"
-                  addon-left-icon="now-ui-icons users_circle-08"
+                  :placeholder="$t('message.email')"
+                  addon-left-icon="now-ui-icons ui-1_email-85"
+                  name="email"
+                  id="email"
                 ></fg-input>
               </div>
-              <div class="col-md-6 pl-2">
-                <label>{{ $t('message.last_name') }}</label>
-                <fg-input
-                  :placeholder="$t('message.last_name')"
-                  addon-left-icon="now-ui-icons text_caps-small"
-                ></fg-input>
+              <div class="form-group">
+                <label for="message">{{ $t('message.your_message') }}</label>
+                <textarea name="message" class="form-control" id="message" rows="6"></textarea>
               </div>
-            </div>
-            <div class="form-group">
-              <label>{{ $t('message.email') }}</label>
-              <fg-input
-                :placeholder="$t('message.email')"
-                addon-left-icon="now-ui-icons ui-1_email-85"
-              ></fg-input>
-            </div>
-            <div class="form-group">
-              <label>{{ $t('message.your_message') }}</label>
-              <textarea name="message" class="form-control" id="message" rows="6"></textarea>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <n-checkbox>I'm not a robot</n-checkbox>
+              <div class="row">
+                <div class="col-md-6">
+                  <n-checkbox>I'm not a robot</n-checkbox>
+                </div>
+                <div class="col-md-6">
+                  <!-- <n-button round class="pull-right btn-cannvest">{{ $t('message.submit') }}</n-button> -->
+                  <input
+                    type="submit"
+                    class="btn btn-round btn-success pull-right btn-cannvest"
+                    :value="$t('message.submit')"
+                  />
+                </div>
               </div>
-              <div class="col-md-6">
-                <n-button round class="pull-right btn-cannvest">{{ $t('message.submit') }}</n-button>
-              </div>
-            </div>
+            </form>
           </card>
-        </div>-->
+        </div>
       </div>
     </div>
   </div>
