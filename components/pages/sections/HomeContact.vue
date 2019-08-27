@@ -32,7 +32,8 @@
           <card type="contact" raised header-classes="text-center">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
             <!-- <form name="contact" action method="POST" netlify-honeypot="bot-field" netlify> -->
-            <form name="contact" action method="POST" >
+            <form name="contact" action method="POST" netlify>
+              <!-- <form name="contact" action method="POST" > -->
 
               <input type="hidden" name="contact-form" value="contact" />
               <p class="hidden">
