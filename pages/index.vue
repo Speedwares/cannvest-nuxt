@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <Hero /> -->
-    <Hero2 />
-
+    <Hero />
     <Solutions />
     <Investors />
     <Producers />
@@ -13,7 +11,6 @@
 </template>
 <script>
 import Hero from "@/components/pages/components/HomeHero.vue";
-import Hero2 from "@/components/pages/components/HomeHero2.vue";
 
 import Solutions from "@/components/pages/sections/HomeSolutions.vue";
 import Investors from "@/components/pages/sections/HomeInvestors.vue";
@@ -31,8 +28,7 @@ export default {
     Producers,
     Technology,
     Team,
-    Contact,
-    Hero2
+    Contact
   }
 };
 </script>

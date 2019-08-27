@@ -2,6 +2,7 @@
   <div
     class="features-7 section-image"
     style="background-image: url('img/home-page/investors-background.jpg')"
+    id="investors"
   >
     <div class="col-md-8 mr-auto ml-auto text-center">
       <h2 class="title">{{ $t('message.title') }}</h2>

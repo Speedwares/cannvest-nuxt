@@ -1,26 +1,43 @@
 <template>
   <div class="header-1">
-    <div class="page-header header-filter">
-      <div
-        class="page-header-image"
-        style="background-image: url('img/home-page/cannvest-banner.jpg')"
-      ></div>
+    <div
+      class="features-7 section-image"
+      style="background-image: url('img/home-page/cannavist.png')"
+    >
       <div class="content-center">
         <div class="container">
           <div class="row">
             <div style="height:"></div>
-            <div class="col-md-7 mr-auto">
+            <div class="col-md-6 mr-auto">
               <h1 class="title">{{ $t('message.header') }}</h1>
               <h4 class="description">{{ $t('message.subtitle') }}</h4>
               <br />
               <div class="buttons">
-                <a href="#investors" class="btn bg-transparent btn-lg mr-3 cta-button">
+                <a
+                  v-if="this.$i18n.locale == 'en'"
+                  href="/en/#investors"
+                  class="btn bg-transparent btn-lg mr-3 cta-button"
+                >
                   <b>{{ $t('message.for_investors') }}</b>
                 </a>
-                <a href="#growers" class="btn bg-transparent btn-lg mr-3 cta-button">
+                <a v-else href="/#investors" class="btn bg-transparent btn-lg mr-3 cta-button">
+                  <b>{{ $t('message.for_investors') }}</b>
+                </a>
+
+                <a
+                  v-if="this.$i18n.locale == 'en'"
+                  href="/en/#growers"
+                  class="btn bg-transparent btn-lg mr-3 cta-button"
+                >
+                  <b>{{ $t('message.for_growers') }}</b>
+                </a>
+                <a v-else href="/#growers" class="btn bg-transparent btn-lg mr-3 cta-button">
                   <b>{{ $t('message.for_growers') }}</b>
                 </a>
               </div>
+            </div>
+            <div class="col-md-6">
+              <!-- <img src="img/home-page/cannvest-isometric.png" class="fluid d-none d-md-block" /> -->
             </div>
           </div>
         </div>
@@ -31,7 +48,7 @@
 
 <script>
 export default {
-  name: "Hero",
+  name: "Hero2",
   i18n: {
     messages: {
       en: {
@@ -67,13 +84,17 @@ export default {
   background-color: #00ab81 !important;
 }
 
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 3em;
-  }
+.features-7 {
+  min-height: 100vh;
+}
 
-  h4 {
-    font-size: 1.2em;
+.features-7:after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .features-7:after {
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 </style>

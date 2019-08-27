@@ -106,12 +106,12 @@
           <i class="fab fa-twitter"></i>
         </a>
       </li>
-      <li>
+      <li v-if="this.$i18n.locale == 'en'">
         <a class="nav-link" href="/">
           <img src="/img/flags/ES.png" alt />
         </a>
       </li>
-      <li>
+      <li v-if="this.$i18n.locale == 'es'">
         <a class="nav-link" href="/en">
           <img src="/img/flags/US.png" alt />
         </a>
@@ -171,6 +171,8 @@ export default {
   },
   mounted() {
     document.addEventListener("scroll", this.scrollListener);
+
+    console.log(this.$i18n.locale);
   },
   beforeDestroy() {
     document.removeEventListener("scroll", this.scrollListener);
@@ -188,11 +190,9 @@ export default {
 .fab {
   font-size: 1.5em !important;
   color: #00ab81;
-
 }
 .fab:hover {
   color: #008262;
-
 }
 .social-icon {
   padding-left: 0 !important;
