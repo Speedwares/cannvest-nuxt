@@ -31,14 +31,7 @@
         <div class="col-md-5 ml-auto mr-auto">
           <card type="contact" raised header-classes="text-center">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-            <form
-              name="contact"
-              action
-              method="POST"
-              netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
-              netlify
-            >
+            <form name="contact" action method="POST" netlify-honeypot="bot-field" netlify>
               <input type="hidden" name="contact-form" value="contact" />
               <p class="hidden">
                 <label>
