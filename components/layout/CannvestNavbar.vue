@@ -92,17 +92,17 @@
         </nav-link>
       </drop-down>-->
       <li>
-        <a class="nav-link social-icon" href="/">
+        <a class="nav-link social-icon" href="https://www.linkedin.com/company/cannvest">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
       <li>
-        <a class="nav-link social-icon" href="/">
+        <a class="nav-link social-icon" href="https://www.facebook.com/cannvest">
           <i class="fab fa-facebook-f"></i>
         </a>
       </li>
       <li>
-        <a class="nav-link social-icon" href="/">
+        <a class="nav-link social-icon" href="https://twitter.com/cannvest">
           <i class="fab fa-twitter"></i>
         </a>
       </li>

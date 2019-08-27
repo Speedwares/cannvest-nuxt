@@ -12,7 +12,7 @@
             <h4 class="info-title">{{ $t('message.office') }}</h4>
             <p class="description">
               Calle 93 # 19-55
-              <br />WeWork 93,
+              <br />WeWork 93
               <br />Bogotá, Colombia
             </p>
           </info-section>
