@@ -91,7 +91,21 @@
           <i class="now-ui-icons tech_mobile"></i> Signup Page
         </nav-link>
       </drop-down>-->
-
+      <li>
+        <a class="nav-link social-icon" href="/">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link social-icon" href="/">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link social-icon" href="/">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
       <li>
         <a class="nav-link" href="/">
           <img src="/img/flags/ES.png" alt />
@@ -170,5 +184,18 @@ export default {
 }
 .nav-logo-sm {
   max-height: 40px;
+}
+.fab {
+  font-size: 1.5em !important;
+  color: #00ab81;
+
+}
+.fab:hover {
+  color: #008262;
+
+}
+.social-icon {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 </style>
