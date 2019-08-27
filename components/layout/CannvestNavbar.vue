@@ -188,7 +188,7 @@ export default {
   max-height: 40px;
 }
 .fab {
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
   color: #00ab81;
 }
 .fab:hover {

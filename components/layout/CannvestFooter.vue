@@ -43,6 +43,7 @@ export default {
 </script>
 <style scoped>
 .fab {
+  font-size: 1.2em;
   color: #00ab81;
 }
 .fab:hover {

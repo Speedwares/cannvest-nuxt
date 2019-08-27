@@ -28,7 +28,7 @@
             </p>
           </info-section>
         </div>
-        <div class="col-md-5 ml-auto mr-auto">
+        <!-- <div class="col-md-5 ml-auto mr-auto">
           <card type="contact" raised header-classes="text-center">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
 
@@ -68,7 +68,7 @@
               </div>
             </div>
           </card>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
