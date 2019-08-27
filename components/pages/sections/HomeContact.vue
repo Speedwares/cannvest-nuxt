@@ -31,8 +31,21 @@
         <div class="col-md-5 ml-auto mr-auto">
           <card type="contact" raised header-classes="text-center">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-            <form name="contact" action method="POST" netlify>
+            <form
+              name="contact"
+              action
+              method="POST"
+              netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
+              netlify
+            >
               <input type="hidden" name="contact-form" value="contact" />
+              <p class="hidden">
+                <label>
+                  Don’t fill this out:
+                  <input name="bot-field" />
+                </label>
+              </p>
               <div class="row">
                 <div class="col-md-6 pr-2">
                   <label for="first-name">{{ $t('message.first_name') }}</label>
@@ -68,10 +81,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <n-checkbox>I'm not a robot</n-checkbox>
+                  <!-- <n-checkbox>I'm not a robot</n-checkbox> -->
+                  <div data-netlify-recaptcha="true"></div>
                 </div>
                 <div class="col-md-6">
-                  <!-- <n-button round class="pull-right btn-cannvest">{{ $t('message.submit') }}</n-button> -->
                   <input
                     type="submit"
                     class="btn btn-round btn-success pull-right btn-cannvest"
@@ -155,5 +168,9 @@ export default {
 
 .btn-cannvest:hover {
   background-color: #008262;
+}
+
+.hidden {
+  display: none;
 }
 </style>
