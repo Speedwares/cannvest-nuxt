@@ -29,12 +29,9 @@
           </info-section>
         </div>
         <div class="col-md-5 ml-auto mr-auto">
-          <card type="contact" raised header-classes="text-center">
+          <card type="contact" raised header-classes="text-center" style="display: none">
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-            <!-- <form name="contact" action method="POST" netlify-honeypot="bot-field" netlify> -->
-            <form name="contact" action method="POST" netlify>
-              <!-- <form name="contact" action method="POST" > -->
-
+            <form name="contact" action method="POST">
               <input type="hidden" name="contact-form" value="contact" />
               <p class="hidden">
                 <label>
@@ -150,8 +147,9 @@ export default {
 </script>
 <style scoped>
 .section-image::after {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 }
+
 .contact-links {
   text-decoration: none;
   font-weight: semi-bold;

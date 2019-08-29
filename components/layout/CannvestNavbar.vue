@@ -107,12 +107,12 @@
         </a>
       </li>
       <li v-if="this.$i18n.locale == 'en'">
-        <a class="nav-link" href="/">
+        <a class="nav-link flag" href="/">
           <img src="/img/flags/ES.png" alt />
         </a>
       </li>
       <li v-if="this.$i18n.locale == 'es'">
-        <a class="nav-link" href="/en">
+        <a class="nav-link flag" href="/en">
           <img src="/img/flags/US.png" alt />
         </a>
       </li>
@@ -197,5 +197,11 @@ export default {
 .social-icon {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+@media screen and (max-width: 992px) {
+  .flag {
+    padding-left: 0 !important;
+  }
 }
 </style>

@@ -49,7 +49,7 @@ export default {
       en: {
         message: {
           title: "Our Technology",
-          iot: "Interet of Things",
+          iot: "Internet of Things",
           text_iot:
             "Our sensor technology measures the ambient and process conditions in for analysis and intelligent decision making.",
           encryption: "Data storage and encryption",
