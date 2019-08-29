@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cannvest-navbar :color-on-scroll="300" />
+    <cannvest-navbar :color-on-scroll="100" />
     <nuxt />
     <cannvest-footer></cannvest-footer>
   </div>
