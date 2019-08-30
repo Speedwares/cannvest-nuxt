@@ -53,7 +53,9 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/pwa',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/google-analytics'
+
   ],
   /*
   ** Build configuration
@@ -98,4 +100,12 @@ module.exports = {
     lazy: true,
     parsePages: false,
   },
+  googleAnalytics: {
+    id: 'UA-141781891-1',
+      debug: {
+    enabled: false, // false is default value
+    trace: false, // default value
+    sendHitTask: true // default value
+  }
+  }  
 }
