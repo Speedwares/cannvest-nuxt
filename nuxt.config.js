@@ -48,7 +48,7 @@ module.exports = {
     { src: '~/plugins/element-ui.js' },
     { src: '~/plugins/now-ui-kit' },
     { src: '~/plugins/firebase.js' },
-    { src: '~/plugins/hotjar.js' },
+    { src: '~/plugins/hotjar.js', ssr: false },
 
   ],
   /*
