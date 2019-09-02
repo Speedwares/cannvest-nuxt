@@ -47,6 +47,22 @@
                 <p class="description">{{ $t('message.text_optimization') }}</p>
               </div>
             </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="buttons">
+                  <a
+                    v-if="this.$i18n.locale == 'en'"
+                    href="/en/#contact-us"
+                    class="btn bg-transparent btn-lg mr-3 cta-button"
+                  >
+                    <b>{{ $t('message.for_growers') }}</b>
+                  </a>
+                  <a v-else href="/#contact-us" class="btn bg-transparent btn-lg mr-3 cta-button">
+                    <b>{{ $t('message.for_growers') }}</b>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-5 col-lg-6"></div>
@@ -71,7 +87,8 @@ export default {
             "Our team installs sensors and cameras on the field and provides a free-to-use mobile app for crop management, improving the productivity of the project.",
           optimization: "Crop Optimization",
           text_optimization:
-            "Use the data to develop crop optimization strategies. Be more productive and get access to new markets."
+            "Use the data to develop crop optimization strategies. Be more productive and get access to new markets.",
+          for_growers: "Learn more"
         }
       },
       es: {
@@ -85,7 +102,8 @@ export default {
             "Nuestro equipo instala sensores e infraestructura y provee acesso a una aplicación de gestión de cultivos.",
           optimization: "Optimización de cultivos",
           text_optimization:
-            "Use los datos para diseñar estrategias de mejora de cultivos. Sea más productivo y obtenga aceceso a nuevos mercados."
+            "Use los datos para diseñar estrategias de mejora de cultivos. Sea más productivo y obtenga aceceso a nuevos mercados.",
+          for_growers: "Conozca más"
         }
       }
     }
@@ -102,5 +120,14 @@ export default {
 }
 .icon-container {
   padding-right: 0;
+}
+.cta-button {
+  border-color: #00ab81 !important;
+  background-color: #00ab81 !important;
+  border: solid;
+}
+.cta-button:hover {
+  border-color: #256656 !important;
+  background-color: #256656 !important;
 }
 </style>

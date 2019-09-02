@@ -48,6 +48,22 @@
                 <p class="description">{{ $t('message.text_return') }}</p>
               </div>
             </div>
+            <div class="row">
+              <div class="col text-center">
+                <div class="buttons">
+                  <a
+                    v-if="this.$i18n.locale == 'en'"
+                    href="/en/#contact-us"
+                    class="btn bg-transparent btn-lg mr-3 cta-button"
+                  >
+                    <b>{{ $t('message.for_investors') }}</b>
+                  </a>
+                  <a v-else href="/#contact-us" class="btn bg-transparent btn-lg mr-3 cta-button">
+                    <b>{{ $t('message.for_investors') }}</b>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -70,7 +86,8 @@ export default {
             "A Smart Contract on the Blockchain is signed between you and your debtors. Track how the funds are being used in an efficient and transparent way.",
           return: "Follow-up and Return on Investment",
           text_return:
-            "Receive weekly reports on the project progress and performance. Get interests payments and a return on your investment according to the negotiated conditions."
+            "Receive weekly reports on the project progress and performance. Get interests payments and a return on your investment according to the negotiated conditions.",
+          for_investors: "Learn more"
         }
       },
       es: {
@@ -84,7 +101,8 @@ export default {
             "Un contrato inteligente es firmado entre usted y los productores. Haga un seguimiento del uso de los fondos de una forma eficiente y transparente.",
           return: "Seguimiento y Retorno a la Inversión",
           text_return:
-            "Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión."
+            "Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión.",
+          for_investors: "Conozca más"
         }
       }
     }
@@ -101,5 +119,15 @@ export default {
 }
 .icon-container {
   padding-right: 0;
+}
+
+.cta-button {
+  border-color: #00ab81 !important;
+  background-color: #00ab81 !important;
+  border: solid;
+}
+.cta-button:hover {
+  border-color: #256656 !important;
+  background-color: #256656 !important;
 }
 </style>

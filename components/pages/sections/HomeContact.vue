@@ -1,7 +1,8 @@
-<template>
+<template >
   <div
     class="contactus-1 section-image"
     style="background-image: url('img/home-page/cannabis-banner-03.jpg')"
+    id="contact-us"
   >
     <div class="container">
       <div class="row">
