@@ -31,7 +31,8 @@
         <div class="col-md-5 ml-auto mr-auto">
           <card type="contact" raised header-classes="text-center" style>
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-            <form name="contact" @submit.prevent="saveContact">
+
+            <form name="contact" @submit.prevent="checkForm" method="post">
               <div class="row">
                 <div class="col-md-6 pr-2">
                   <label for="first-name">{{ $t('message.first_name') }}</label>
@@ -62,6 +63,32 @@
                 ></fg-input>
               </div>
               <div class="form-group">
+                <label>{{ $t('message.interest') }}</label>
+                <fg-input required>
+                  <el-select
+                    class="select-info"
+                    :placeholder="$t('message.select_option')"
+                    v-model="profile"
+                  >
+                    <el-option
+                      class="select-default"
+                      value="Investor"
+                      :label="$t('message.investor')"
+                    ></el-option>
+                    <el-option
+                      class="select-default"
+                      value="Producer"
+                      :label="$t('message.producer')"
+                    ></el-option>
+                    <el-option
+                      class="select-default"
+                      value="Information"
+                      :label="$t('message.more_info')"
+                    ></el-option>
+                  </el-select>
+                </fg-input>
+              </div>
+              <div class="form-group">
                 <label for="message">{{ $t('message.your_message') }}</label>
                 <textarea
                   name="message"
@@ -70,12 +97,16 @@
                   rows="6"
                   v-model="message"
                 ></textarea>
+                                                  <input
+                    type="submit"
+                    class="btn btn-round btn-success text-center btn-cannvest"
+                    :value="$t('message.submit')"
+                    
+                  />
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <!-- <n-checkbox>I'm not a robot</n-checkbox> -->
-                  <!-- <div data-netlify-recaptcha="true"></div> -->
-                </div>
+
+              <!-- <div class="row">
+                <div class="col-md-6"></div>
                 <div class="col-md-6">
                   <input
                     type="submit"
@@ -83,7 +114,17 @@
                     :value="$t('message.submit')"
                   />
                 </div>
-              </div>
+              </div> -->
+              <p v-if="errors.length" class="form-error">
+                <b>{{$t('message.correct_errors')}}</b>
+                <ul>
+                  <li v-for="(error, index) in errors" :key="index">
+                    {{error}}
+                  </li>
+                </ul>
+              </p>
+              <p v-if="writeSuccessful" class="form-success">{{ $t('message.thank_you') }}</p>
+
             </form>
           </card>
         </div>
@@ -93,6 +134,7 @@
 </template>
 <script>
 import { fireDb } from "~/plugins/firebase.js";
+import { Select, Option } from "element-ui";
 
 import {
   Card,
@@ -108,7 +150,9 @@ export default {
     InfoSection,
     [Button.name]: Button,
     [Checkbox.name]: Checkbox,
-    [FormGroupInput.name]: FormGroupInput
+    [FormGroupInput.name]: FormGroupInput,
+    [Select.name]: Select,
+    [Option.name]: Option
   },
   data() {
     return {
@@ -116,10 +160,43 @@ export default {
       lastName: null,
       emailAddress: null,
       message: null,
-      writeSuccessful: false
+      writeSuccessful: false,
+      profile: null,
+      errors: []
     };
   },
   methods: {
+    checkForm() {
+      this.errors = [];
+
+      if (!this.firstName) {
+        this.errors.push(this.$i18n.t("message.first_name_required"));
+        console.log(this.errors);
+      }
+      if (!this.lastName) {
+        this.errors.push(this.$i18n.t("message.last_name_required"));
+        console.log(this.errors);
+      }
+      if (!this.emailAddress) {
+        this.errors.push(this.$i18n.t("message.email_required"));
+        console.log(this.errors);
+      } else if (!this.validEmail(this.emailAddress)) {
+        this.errors.push(this.$i18n.t("message.valid_email_required"));
+      }
+      if (!this.profile) {
+        this.errors.push(this.$i18n.t("message.profile_required"));
+        console.log(this.errors);
+      }
+      if (!this.errors.length) {
+        this.saveContact();
+      }
+    },
+
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+
     async saveContact() {
       const ref = fireDb.collection("contacts");
       try {
@@ -128,6 +205,7 @@ export default {
           lastName: this.lastName,
           emailAddress: this.emailAddress,
           message: this.message,
+          profile: this.profile,
           slug: this.generateUUID()
         });
         console.log("Document written with ID: ", docRef.id);
@@ -162,8 +240,20 @@ export default {
           first_name: "Name",
           last_name: "Surname",
           email: "Email address",
+          interest: "I am interested in",
+          select_option: "Select an option",
+          investor: "Invest in cannabis",
+          producer: "Get funded",
+          more_info: "More information",
           your_message: "Your message",
-          submit: "Send Message"
+          submit: "Send Message",
+          correct_errors: "Please correct the following errors",
+          first_name_required: "Please add your first name",
+          last_name_required: "Please add your last name",
+          email_required: "Please add your email address",
+          valid_email_required: "Please add a valid email address",
+          profile_required: "Please select your need",
+          thank_you: "Thanks for writing us. We will contact you shortly"
         }
       },
       es: {
@@ -177,8 +267,21 @@ export default {
           first_name: "Nombre",
           last_name: "Apellido",
           email: "Correo Electrónico",
+          interest: "Deseo",
+          select_option: "Seleccione una opción",
+          investor: "Invertir en cannabis",
+          producer: "Recibir financiación",
+          more_info: "Más información",
           your_message: "Su Mensaje",
-          submit: "Enviar"
+          submit: "Enviar",
+          correct_errors: "Por favor corrija los siguientes errores",
+          first_name_required: "Por favor escriba su nombre",
+          last_name_required: "Por favor escriba su apellido",
+          email_required: "Por favor escriba su correo electrónico",
+          valid_email_required: "Por favor escribir una dirección de correo electrónico válida",
+          profile_required: "Por favor seleccione su necesidad",
+          thank_you: "Gracias por escribirnos. Lo contactaremos pronto."
+
         }
       }
     }
@@ -206,5 +309,16 @@ export default {
 
 .hidden {
   display: none;
+}
+
+.form-error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.form-success {
+  color: #00ab81;
+  font-weight: bold;
+  font-size: 1em;
 }
 </style>

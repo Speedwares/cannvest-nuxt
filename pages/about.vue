@@ -336,7 +336,7 @@
                                     <div class="col-md-4">
                                         <label>Speciality</label>
                                         <fg-input>
-                                            <el-select class="select-default" v-model="form.speciality">
+                                            <el-select class="select-default" v-model="speciality">
                                                 <el-option class="select-default" value="1" label="I'm a Designer"></el-option>
                                                 <el-option class="select-default" value="2" label="I'm a Developer"></el-option>
                                                 <el-option class="select-default" value="3" label="I'm a Hero"></el-option>
