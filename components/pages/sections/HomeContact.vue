@@ -29,24 +29,17 @@
           </info-section>
         </div>
         <div class="col-md-5 ml-auto mr-auto">
-          <card type="contact" raised header-classes="text-center" style="display: none">
+          <card type="contact" raised header-classes="text-center" style>
             <h4 slot="header" class="card-title">{{ $t('message.form_title') }}</h4>
-            <form name="contact" action method="POST">
-              <input type="hidden" name="contact-form" value="contact" />
-              <p class="hidden">
-                <label>
-                  Don’t fill this out:
-                  <input name="bot-field" />
-                </label>
-              </p>
+            <form name="contact" @submit.prevent="saveContact">
               <div class="row">
                 <div class="col-md-6 pr-2">
                   <label for="first-name">{{ $t('message.first_name') }}</label>
                   <fg-input
                     :placeholder="$t('message.first_name')"
                     addon-left-icon="now-ui-icons users_circle-08"
-                    name="first-name"
-                    id="first-name"
+                    v-model="firstName"
+                    required
                   ></fg-input>
                 </div>
                 <div class="col-md-6 pl-2">
@@ -54,8 +47,8 @@
                   <fg-input
                     :placeholder="$t('message.last_name')"
                     addon-left-icon="now-ui-icons text_caps-small"
-                    name="last-name"
-                    id="last-name"
+                    v-model="lastName"
+                    required
                   ></fg-input>
                 </div>
               </div>
@@ -64,13 +57,19 @@
                 <fg-input
                   :placeholder="$t('message.email')"
                   addon-left-icon="now-ui-icons ui-1_email-85"
-                  name="email"
-                  id="email"
+                  v-model="emailAddress"
+                  required
                 ></fg-input>
               </div>
               <div class="form-group">
                 <label for="message">{{ $t('message.your_message') }}</label>
-                <textarea name="message" class="form-control" id="message" rows="6"></textarea>
+                <textarea
+                  name="message"
+                  class="form-control"
+                  id="message"
+                  rows="6"
+                  v-model="message"
+                ></textarea>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -93,6 +92,8 @@
   </div>
 </template>
 <script>
+import { fireDb } from "~/plugins/firebase.js";
+
 import {
   Card,
   Button,
@@ -108,6 +109,45 @@ export default {
     [Button.name]: Button,
     [Checkbox.name]: Checkbox,
     [FormGroupInput.name]: FormGroupInput
+  },
+  data() {
+    return {
+      firstName: null,
+      lastName: null,
+      emailAddress: null,
+      message: null,
+      writeSuccessful: false
+    };
+  },
+  methods: {
+    async saveContact() {
+      const ref = fireDb.collection("contacts");
+      try {
+        const docRef = await ref.add({
+          firstName: this.firstName,
+          lastName: this.lastName,
+          emailAddress: this.emailAddress,
+          message: this.message,
+          slug: this.generateUUID()
+        });
+        console.log("Document written with ID: ", docRef.id);
+        this.writeSuccessful = true;
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    },
+    generateUUID() {
+      let d = new Date().getTime();
+      let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+        /[xy]/g,
+        function(c) {
+          let r = (d + Math.random() * 16) % 16 | 0;
+          d = Math.floor(d / 16);
+          return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+        }
+      );
+      return uuid;
+    }
   },
   i18n: {
     messages: {

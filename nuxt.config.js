@@ -46,7 +46,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/globalDirectives.js', ssr: false },
     { src: '~/plugins/element-ui.js' },
-    { src: '~/plugins/now-ui-kit' }
+    { src: '~/plugins/now-ui-kit' },
+    { src: '~/plugins/firebase.js' },
   ],
   /*
   ** Nuxt.js modules
