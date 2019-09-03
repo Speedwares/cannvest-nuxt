@@ -54,7 +54,27 @@
                   ></fg-input>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 pr-2">
+                  <label for="email">{{ $t('message.email') }}</label>
+                  <fg-input
+                    :placeholder="$t('message.email')"
+                    addon-left-icon="now-ui-icons ui-1_email-85"
+                    v-model="emailAddress"
+                    required
+                  ></fg-input>
+                </div>
+                <div class="col-md-6 pl-2">
+                  <label for="telephone">{{ $t('message.telephone') }}</label>
+                  <fg-input
+                    :placeholder="$t('message.telephone')"
+                    addon-left-icon="now-ui-icons tech_mobile"
+                    v-model="telephone"
+                    required
+                  ></fg-input>
+                </div>
+              </div>              
+              <!-- <div class="form-group">
                 <label for="email">{{ $t('message.email') }}</label>
                 <fg-input
                   :placeholder="$t('message.email')"
@@ -62,7 +82,7 @@
                   v-model="emailAddress"
                   required
                 ></fg-input>
-              </div>
+              </div> -->
               <div class="form-group">
                 <label>{{ $t('message.interest') }}</label>
                 <fg-input required>
@@ -98,7 +118,7 @@
                   rows="6"
                   v-model="message"
                 ></textarea>
-                                                  <input
+                  <input
                     type="submit"
                     class="btn btn-round btn-success text-center btn-cannvest"
                     :value="$t('message.submit')"
@@ -160,6 +180,7 @@ export default {
       firstName: null,
       lastName: null,
       emailAddress: null,
+      telephone: null,
       message: null,
       writeSuccessful: false,
       profile: null,
@@ -205,12 +226,14 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           emailAddress: this.emailAddress,
+          telephone: this.telephone,
           message: this.message,
           profile: this.profile,
           slug: this.generateUUID()
         });
         console.log("Document written with ID: ", docRef.id);
         this.writeSuccessful = true;
+        this.clearFields();
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -226,6 +249,14 @@ export default {
         }
       );
       return uuid;
+    },
+    clearFields() {
+      this.firstName = null;
+      this.lastName = null;
+      this.emailAddress = null;
+      this.telephone = null;
+      this.message = null;
+      this.profile = null;
     }
   },
   i18n: {
@@ -241,6 +272,7 @@ export default {
           first_name: "Name",
           last_name: "Surname",
           email: "Email address",
+          telephone: "Phone number",
           interest: "I am interested in",
           select_option: "Select an option",
           investor: "Invest in cannabis",
@@ -268,6 +300,7 @@ export default {
           first_name: "Nombre",
           last_name: "Apellido",
           email: "Correo Electrónico",
+          telephone: "Teléfono",
           interest: "Deseo",
           select_option: "Seleccione una opción",
           investor: "Invertir en cannabis",

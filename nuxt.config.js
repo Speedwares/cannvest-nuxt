@@ -64,6 +64,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    analyze: true,
     extractCSS: process.env.NODE_ENV === 'production',
     babel: {
       plugins: [
