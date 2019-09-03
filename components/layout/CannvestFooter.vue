@@ -22,6 +22,11 @@
               <i class="fab fa-twitter"></i>
             </a>
           </li>
+          <li>
+            <a class="nav-link social-icon" href="https://wa.me/573505352868">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </li>
         </ul>
       </nav>
       <div class="copyright">&copy; {{year}}, {{ $t('message.copyright') }}</div>
