@@ -6,6 +6,7 @@
     <Producers />
     <Technology />
     <Team />
+    <Allies />
     <Contact />
   </div>
 </template>
@@ -18,6 +19,7 @@ import Producers from "@/components/pages/sections/HomeProducers.vue";
 import Technology from "@/components/pages/sections/HomeTechnology.vue";
 import Team from "@/components/pages/sections/HomeTeam.vue";
 import Contact from "@/components/pages/sections/HomeContact.vue";
+import Allies from "@/components/pages/sections/HomeAllies.vue";
 
 export default {
   layout: "white-nav",
@@ -28,7 +30,8 @@ export default {
     Producers,
     Technology,
     Team,
-    Contact
+    Contact,
+    Allies
   }
 };
 </script>
