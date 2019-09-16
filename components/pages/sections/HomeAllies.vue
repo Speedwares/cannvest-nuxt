@@ -53,8 +53,13 @@
 </template>
 
 <script>
+import { Card } from "@/components";
+
 export default {
   name: "Allies",
+  components: {
+    Card
+  },
   i18n: {
     messages: {
       en: {

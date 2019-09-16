@@ -38,7 +38,7 @@
                 <div class="col-lg-6 col-md-6">
                   <HomeTeamCards
                     name="Andrés Rojas"
-                    job="CTO"
+                    :job="$t('message.blockchain_consultant_a')"
                     :description="$t('message.cto_description')"
                     linkedIn="https://www.linkedin.com/in/acrm/"
                     email="mailto:andres.r@cannvest.co"
@@ -131,6 +131,8 @@ export default {
           startup_advisor_description:
             "Co-founder of WeSend. MIT 35 under 35 Innovators",
           blockchain_consultant: "Blockchain Consultant",
+          blockchain_consultant_a: "Blockchain Consultant",
+
           blockchain_consultant_description:
             "Co-founder of Blockchain Academy. Senior Hyperledger & Corda Developer"
         }
@@ -157,6 +159,8 @@ export default {
           startup_advisor_description:
             "Co-fundador de WeSend. Innovador MIT: 35 menores de 35",
           blockchain_consultant: "Consultora en Blockchain",
+          blockchain_consultant_a: "Consultor en Blockchain",
+
           blockchain_consultant_description:
             "Co-fundadora de Blockchain Academy. Desarrolladora Senior en Corda y Hyperledger"
         }
