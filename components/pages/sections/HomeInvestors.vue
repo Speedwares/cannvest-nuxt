@@ -53,7 +53,7 @@
                 <div class="buttons">
                   <nuxt-link
                     v-if="this.$i18n.locale == 'en'"
-                    to="/invest-form-es"
+                    to="/invest-form-en"
                     class="btn bg-transparent btn-lg mr-3 cta-button"
                   >
                     <b>{{ $t('message.for_investors') }}</b>

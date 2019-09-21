@@ -21,7 +21,12 @@ module.exports = {
       name: 'invest-form-es',
       path: '/invest-form-es',
       component: 'pages/invest-form-es.vue'
-    }
+    },
+    {
+      name: 'invest-form-en',
+      path: '/invest-form-en',
+      component: 'pages/invest-form-en.vue'
+    }    
   ]
 
 
