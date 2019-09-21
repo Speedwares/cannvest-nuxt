@@ -20,7 +20,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Crowdfunding for the cannabis industry. Financiación colaborativa para la industria del cannabis' },
+      { hid: 'keywords', name: 'keywords', 'cannabis, crowdfunding, investment, blockchain, colombia, inversion', 'financial', 'services', 'servicios', 'financieros' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/cannvest-logo-icon.ico' },
