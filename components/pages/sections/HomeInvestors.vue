@@ -51,16 +51,20 @@
             <div class="row">
               <div class="col text-center">
                 <div class="buttons">
-                  <a
+                  <nuxt-link
                     v-if="this.$i18n.locale == 'en'"
-                    href="/en/#contact-us"
+                    to="/invest-form-es"
                     class="btn bg-transparent btn-lg mr-3 cta-button"
                   >
                     <b>{{ $t('message.for_investors') }}</b>
-                  </a>
-                  <a v-else href="/#contact-us" class="btn bg-transparent btn-lg mr-3 cta-button">
+                  </nuxt-link>
+                  <nuxt-link
+                    v-else
+                    to="/invest-form-es"
+                    class="btn bg-transparent btn-lg mr-3 cta-button"
+                  >
                     <b>{{ $t('message.for_investors') }}</b>
-                  </a>
+                  </nuxt-link>
                 </div>
               </div>
             </div>

@@ -5,15 +5,26 @@ module.exports = {
   ** Headers of the page
   */
   router: {
-    base: '/',
-    linkExactActiveClass: 'active',
-    scrollBehavior: (to) => {
-      if (to.hash) {
-        return {selector: to.hash}
-      } else {
-        return { x: 0, y: 0 }
+    routes: [
+      {
+      base: '/',
+      linkExactActiveClass: 'active',
+      scrollBehavior: (to) => {
+        if (to.hash) {
+          return {selector: to.hash}
+        } else {
+          return { x: 0, y: 0 }
+        }
       }
+    },
+    {
+      name: 'invest-form-es',
+      path: '/invest-form-es',
+      component: 'pages/invest-form-es.vue'
     }
+  ]
+
+
   },
   head: {
     title: 'Cannvest',
