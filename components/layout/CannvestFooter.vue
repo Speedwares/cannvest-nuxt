@@ -17,6 +17,35 @@
               <span style="color:#00ab81">{{ $t('message.privacy_policy') }}</span>
             </nuxt-link>
           </li>
+
+
+        <ul class="d-sm-none">
+      <li>
+        <a class="nav-link social-icon" href="https://www.linkedin.com/company/cannvest">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      <li>          
+      <li>
+        <a class="nav-link social-icon" href="https://www.facebook.com/cannvest">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link social-icon" href="https://twitter.com/cannvest">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+          <li>
+            <a class="nav-link social-icon" href="https://wa.me/573505352868">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </li> 
+        </ul>
+      </li>
+
+
+
         </ul>
       </nav>
       <div class="copyright">&copy; {{year}}, {{ $t('message.copyright') }}</div>
