@@ -21,7 +21,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no' },
       { name: 'keywords', content: 'crowdfunding, cannabis, blockchain, colombia, invertir, invest'},
-      { hid: 'description', name: 'description', content: 'Crowdfunding for the cannabis industry. Financiación colaborativa para la industria del cannabis' },
+      { hid: 'description', name: 'description', content: 'Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/cannvest-logo-icon.ico' },
@@ -58,7 +58,8 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     'nuxt-i18n',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/apollo'
 
   ],
   /*
@@ -112,5 +113,10 @@ module.exports = {
     trace: false, // default value
     sendHitTask: true // default value
   }
-  }  
+  },
+  apollo: {
+    clientConfigs: {
+      default: '@/apollo/client-configs/default.js'
+    }
+  }
 }
