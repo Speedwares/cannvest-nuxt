@@ -8,7 +8,7 @@
     <template slot-scope="{toggle, isToggled}">
       <nuxt-link class="navbar-brand" to="/">
         <img
-          src="/img/logos/cannvest-logo.png"
+          src="/img/logos/cannvest-logo.svg"
           alt="Cannvest Logo"
           class="fluid nav-logo nav-logo-lg"
         />
@@ -187,10 +187,12 @@ export default {
 
 <style scoped>
 .nav-logo-lg {
-  max-height: 75px;
+  /* max-height: 75px; */
+  height: 75px;
 }
 .nav-logo-sm {
-  max-height: 40px;
+  /* max-height: 40px; */
+  height: 40px;
 }
 .fab {
   font-size: 1.4em !important;
