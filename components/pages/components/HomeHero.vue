@@ -53,9 +53,9 @@ export default {
     messages: {
       en: {
         message: {
-          header: "Financial Solutions for Cannabis Growers",
+          header: "Financial Solutions for the Cannabis Industry",
           subtitle:
-            "Cannvest connects investors and cannabis growers, improving their crop valuation through traceability and crop optmization technologies on the blockchain",
+            "Our crowdfunding platform connects investors and cannabis growers, improving their crop valuation through traceability and crop optmization technologies on the blockchain",
           for_investors: "For Investors",
           for_growers: "For Growers"
         }
@@ -63,9 +63,9 @@ export default {
       es: {
         message: {
           // header: 'SOLUCIONES FINANCIERAS PARA PRODUCTORES DE CANNABIS',
-          header: "Soluciones financieras para productores de cannabis",
+          header: "Soluciones financieras para la industria del cannabis",
           subtitle:
-            "Cannvest conecta inversionistas con productores de cannabis, mejorando la valoración de su cosecha a través de tecnologías de optimización y trazabilidad de cultivos sobre blockchain",
+            "Nuestra plataforma conecta inversionistas con productores de cannabis, mejorando la valoración de su cosecha a través de tecnologías de optimización y trazabilidad de cultivos sobre blockchain",
           for_investors: "Para Inversionistas",
           for_growers: "Para Productores"
         }
@@ -90,6 +90,10 @@ export default {
 
 .features-7:after {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {

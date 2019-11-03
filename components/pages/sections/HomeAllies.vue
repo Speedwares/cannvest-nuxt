@@ -85,7 +85,7 @@ export default {
             "Regístrese dentro de nuestra red de inversionistas para obtener acceso a nuestro portafolio de inversión.",
           invest: "Invierta",
           text_invest:
-            "Un contrato inteligente es firmado entre usted y los productores. Haga un seguimiento del uso de los fondos de una forma eficiente y transparente.",
+            "Nuestra plataforma de crowdfunding realiza un seguimiento del uso de los fondos de una forma eficiente y transparente.",
           return: "Seguimiento y Retorno a la Inversión",
           text_return:
             "Reciba reportes periódicos sobre el progreso del proyecto. Reciba intereses y un retorno a su inversión.",

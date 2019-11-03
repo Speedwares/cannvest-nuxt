@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-6">
           <div class="info info-hover">
-            <div class="icon icon-success">
+            <div class="icon icon-info">
               <img
                 src="img/icons/crowdfunding.svg"
                 alt="Crowdfunding"
@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="info info-hover">
-            <div class="icon icon-success">
+            <div class="icon icon-info">
               <img
                 src="img/icons/investment.svg"
                 alt="Investment"
@@ -34,7 +34,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="info info-hover">
-            <div class="icon icon-success">
+            <div class="icon icon-info">
               <img
                 src="img/icons/agro-tech.svg"
                 alt="Agrotech"
@@ -46,7 +46,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="info info-hover">
-            <div class="icon icon-success">
+            <div class="icon icon-info">
               <img
                 src="img/icons/cannabis-growth.svg"
                 alt="Cannabis Growth"
@@ -83,7 +83,7 @@ export default {
           solution: 'Nuestra Solución',
           description:
             'Invertir en la industria del cannabis nunca ha sido tan sencillo. Nuestra tecnología de trazabilidad, construida sobre un blockchain privado, mantiene registro de cada actividad en el cultivo, brindando información en tiempo real acerca del estado de desarrollo del proyecto',
-          crowdfunding: 'Platforma de inversión colaborativa',
+          crowdfunding: 'Platforma de crowdfunding',
           investment:
             'Conectando inversionistas con proyectos de infraestructura en agricultura',
           agro_tech:
@@ -100,5 +100,8 @@ export default {
 <style scoped>
 .img-solution {
   max-width: 160px;
+}
+.info-hover:hover {
+  color: red;
 }
 </style>
