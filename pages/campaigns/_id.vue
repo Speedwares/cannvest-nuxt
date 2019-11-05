@@ -1,65 +1,26 @@
 <template>
-  <div class="site-main">
-    <div class="page-title background-campaign">
-      <div class="container">
-        <h1>{{ campaignDetails.title }}</h1>
-      </div>
-    </div>
-    <!-- .page-title -->
+  <div class="container">
+    <h1>Hello world</h1>
+    <h2>{{ id }}</h2>
+    <h2>{{ chani }}</h2>
 
+    <button @click="test">Click me</button>
   </div>
-  <!-- .site-main -->
 </template>
-<style scoped>
 
-</style>
 <script>
-import gql from 'graphql-tag'
-
-const campaign = gql`
-  query campaignDetails($id: ID!) {
-    campaignDetails(where: { id: $id }) {
-      id
-      title
-      category
-      author
-      description
-      city
-      fundingGoal
-      pledgedFunds
-      backersNumber
-      daysSincePublished
-      ideaDescription
-      ideaVideoUrl
-      teamMembers {
-        id
-        name
-        position
-        description
-        picture {
-          url
-        }
-      }
-      image {
-        url
-      }
-    }
-  }
-`
 export default {
-  components: {
+  data() {
+    return {
+      id: this.$route.params.id,
+      chani: 'ABC'
+    }
   },
-  data: () => ({
-    campaignDetails: null
-  }),
-  apollo: {
-    campaignDetails: {
-      query: campaign,
-      variables() {
-        return {
-          id: this.$route.params.id
-        }
-      }
+  methods: {
+    test: () => {
+      console.log('testing')
+      console.log(this.chani)
+
     }
   }
 }

@@ -1,6 +1,10 @@
 <template>
-  <a href="https://facebook.com">
+  <nuxt-link to="/campaigns/ck2bw1gsfasi20a30g4qye2z6">
+  <!-- <nuxt-child :key="$route.params.id" > -->
     <card type="profile">
+
+
+
       <div class="campaign-photo">
         <p style="color:transparent"></p>
       </div>
@@ -23,19 +27,19 @@
         </div>
 
         <div class="row finance-data-container">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <h5 class="card-title text-left finance-data-title">
               Financiado:
               <span class="finance-data">{{ raisedFormat }}</span>
             </h5>
           </div>
-          <div class="col-md-4 sides-border">
+          <div class="col-md-6 sides-border">
             <h5 class="card-title text-left finance-data-title">
               Inversionistas:
               <span class="finance-data">{{ investors }}</span>
             </h5>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-12">
             <h5 class="card-title text-left finance-data-title">
               Rentabilidad Esperada:
               <span class="finance-data">21.5% E.A.</span>
@@ -56,11 +60,11 @@
         </div>
       </div>
     </card>
-  </a>
+  </nuxt-link>
+  <!-- </nuxt-child> -->
 </template>
 
 <style scoped>
-
 .price-container {
   display: flex;
 }
@@ -68,6 +72,7 @@
 .card-body {
   margin-top: 330px;
 }
+      /* <NuxtChild :key="$route.params.id" /> */
 
 .campaign-photo {
   overflow: hidden;
@@ -109,7 +114,7 @@
 }
 
 .finance-data-container .finance-data-title {
-  font-size: 0.8em;
+  font-size: 0.85em;
 }
 
 .finance-data {
@@ -124,7 +129,6 @@
   }
   .sides-border {
     border-left: 1px solid #aaa;
-    border-right: 1px solid #aaa;
   }
   .finance-data-container .finance-data-title {
     /* font-size: 1.2em; */
@@ -142,6 +146,7 @@ export default {
   props: ["campaign"],
   data: function() {
     return {
+      id: this.campaign.company.id,
       company: this.campaign.company.razonSocial,
       website: this.campaign.company.website,
       logo: this.campaign.company.logo.url,
