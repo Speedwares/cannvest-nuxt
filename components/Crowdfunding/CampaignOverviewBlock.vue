@@ -61,9 +61,6 @@
         </div>
       </div>
     </div>
-
-    <p>{{ simple }}</p>
-    <!-- <p>{{ campaign }}</p> -->
   </div>
 </template>
 
