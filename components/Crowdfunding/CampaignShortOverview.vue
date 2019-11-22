@@ -1,10 +1,7 @@
 <template>
   <nuxt-link to="/campaigns/ck2bw1gsfasi20a30g4qye2z6">
-  <!-- <nuxt-child :key="$route.params.id" > -->
+    <!-- <nuxt-child :key="$route.params.id" > -->
     <card type="profile">
-
-
-
       <div class="campaign-photo">
         <p style="color:transparent"></p>
       </div>
@@ -23,7 +20,7 @@
           </h5>
         </div>
         <div>
-          <n-progress type="info" :value="percentageRaised" :height="35" show-value style></n-progress>
+          <n-progress type="warning" :value="percentageRaised" :height="35" show-value style></n-progress>
         </div>
 
         <div class="row finance-data-container">
@@ -72,7 +69,7 @@
 .card-body {
   margin-top: 330px;
 }
-      /* <NuxtChild :key="$route.params.id" /> */
+/* <NuxtChild :key="$route.params.id" /> */
 
 .campaign-photo {
   overflow: hidden;
@@ -102,6 +99,7 @@
 
 .card-description {
   font-size: 1.1em;
+  font-weight: 400;
 }
 
 .finance-data-container {
@@ -157,16 +155,14 @@ export default {
       goal: this.campaign.fundingGoal,
       goalFormat: new Intl.NumberFormat("es-CO", {
         style: "currency",
-        currency: "COP"
+        currency: "COP",
+        maximumSignificantDigits: 1
       }).format(this.campaign.fundingGoal),
-      raisedFormat: new Intl.NumberFormat(
-        "es-CO",
-        {
-          style: "currency",
-          currency: "COP"
-        },
-        { maximumSignificantDigits: 0 }
-      ).format(this.campaign.pledgedFunds)
+      raisedFormat: new Intl.NumberFormat("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumSignificantDigits: 1
+      }).format(this.campaign.pledgedFunds)
     };
   },
   computed: {
