@@ -60,11 +60,22 @@
           <p>12 meses</p>
         </div>
       </div>
+      <div class="row">
+        <div class="col text-center">
+          <n-button type="default" size="lg" class="invest-button">Invest</n-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.invest-button {
+  background-color: #00809d;
+}
+.invest-button:hover {
+  background-color: #005f9b;
+}
 .company-logo {
   margin-bottom: 10px;
 }

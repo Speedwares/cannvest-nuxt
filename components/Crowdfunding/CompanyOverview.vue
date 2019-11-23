@@ -60,6 +60,10 @@
 .company-description {
   color: #595959;
 }
+
+.fab {
+  font-size: 1.5em;
+}
 </style>
 
 <script>

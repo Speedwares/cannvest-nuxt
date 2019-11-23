@@ -15,6 +15,11 @@
           </card>
         </div>
       </div>
+      <div class="row">
+        <div class="col text-center">
+          <n-button type="default" size="lg" class="invest-button">Invest</n-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -26,14 +31,21 @@
 .card-description {
   font-weight: 500;
 }
+.invest-button {
+  background-color: #00809d;
+}
+.invest-button:hover {
+  background-color: #005f9b;
+}
 </style>
 
 <script>
-import { Card } from "@/components";
+import { Button, Card } from "@/components";
 
 export default {
   components: {
-    Card
+    Card,
+    [Button.name]: Button
   },
   data: function() {
     return {

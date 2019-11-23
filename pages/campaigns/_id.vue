@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper product-page">
     <div class="page-header page-header-mini rellax-header">
-      <div class="page-header-image" style="background-image: url('img/pp-cov.jpg') ;"></div>
+      <div class="page-header-image" :style="{ 'background-image' : 'url(' + header + ' )' }"></div>
     </div>
     <div class="section">
       <div class="container">
@@ -246,6 +246,9 @@ export default {
         (this.campaignDetails.pledgedFunds / this.campaignDetails.fundingGoal) *
         100
       );
+    },
+    header: function() {
+      return this.campaignDetails.projectPhotos[0].url;
     }
   },
   apollo: {
