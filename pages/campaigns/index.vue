@@ -56,115 +56,15 @@
           <h2 class="section-title">Campañas activas</h2>
           <div class="row">
             <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign="campaignDetails" />
+              <campaign-short-overview :campaign=" campaignDetailses[2] " />
             </div>
             <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign="campaignDetails" />
+              <campaign-short-overview :campaign="campaignDetailses[2]" />
             </div>
             <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign="campaignDetails" />
+              <campaign-short-overview :campaign="campaignDetailses[2]" />
             </div>
           </div>
-
-
-          <!-- <div class="row">
-            <div class="col-md-3">
-              <div class="collapse-panel">
-                <div class="card-body">
-                  <div class="card card-refine card-plain">
-                    <h4 class="card-title">
-                      Refine
-                      <button
-                        class="btn btn-default btn-icon btn-neutral pull-right"
-                        rel="tooltip"
-                        title="Reset Filter"
-                      >
-                        <i class="arrows-1_refresh-69 now-ui-icons"></i>
-                      </button>
-                    </h4>
-                    <collapse>
-                      <collapse-item no-icon class="card-header">
-                        <h6 class="mb-0 text-success" slot="title">
-                          Price Range
-                          <i class="now-ui-icons arrows-1_minimal-down"></i>
-                        </h6>
-                        <span class="price-left pull-left">€{{filters.priceRange[0]}}</span>
-                        <span class="price-right pull-right">€{{filters.priceRange[1]}}</span>
-                        <div class="clearfix"></div>
-                        <slider
-                          id="slider-refine"
-                          class="slider-refine"
-                          v-model="filters.priceRange"
-                          :range="{min: 0, max: 900}"
-                          :connect="true"
-                        ></slider>
-                      </collapse-item>
-                      <collapse-item no-icon class="card-header">
-                        <h6 class="mb-0 text-success" slot="title">
-                          Clothing
-                          <i class="now-ui-icons arrows-1_minimal-down"></i>
-                        </h6>
-                        <n-checkbox
-                          v-for="clothing in filters.clothingTypes"
-                          v-model="clothing.value"
-                          :key="clothing.label"
-                        >{{clothing.label}}</n-checkbox>
-                      </collapse-item>
-                      <collapse-item no-icon class="card-header">
-                        <h6 class="mb-0 text-success" slot="title">
-                          Designer
-                          <i class="now-ui-icons arrows-1_minimal-down"></i>
-                        </h6>
-                        <n-checkbox
-                          v-for="desginer in filters.designerTypes"
-                          v-model="desginer.value"
-                          :key="desginer.label"
-                        >{{desginer.label}}</n-checkbox>
-                      </collapse-item>
-                      <collapse-item no-icon class="card-header">
-                        <h6 class="mb-0 text-success" slot="title">
-                          Colour
-                          <i class="now-ui-icons arrows-1_minimal-down"></i>
-                        </h6>
-                        <n-checkbox
-                          v-for="color in filters.colourTypes"
-                          v-model="color.value"
-                          :key="color.label"
-                        >{{color.label}}</n-checkbox>
-                      </collapse-item>
-                    </collapse>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-9">
-              <div class="row">
-                <div class="col-lg-4 col-md-6" v-for="product in products" :key="product.title">
-                  <card type="product" plain>
-                    <img slot="image" :src="product.image" alt />
-
-                    <a href="#">
-                      <h4 class="card-title">{{product.title}}</h4>
-                    </a>
-                    <p class="card-description">{{product.description}}</p>
-                    <div class="card-footer">
-                      <div class="price-container">
-                        <span class="price">&euro; 300</span>
-                      </div>
-                      <el-tooltip effect="light" content="Remove from wishlist" placement="top">
-                        <n-button type="success" icon round class="pull-right btn-neutral">
-                          <i class="now-ui-icons ui-2_favourite-28"></i>
-                        </n-button>
-                      </el-tooltip>
-                    </div>
-                  </card>
-                </div>
-                <div class="col-md-3 ml-auto mr-auto">
-                  <n-button type="success" round>Load more...</n-button>
-                </div>
-              </div>
-            </div>
-          </div>-->
         </div>
       </div>
       <!-- section -->
@@ -372,6 +272,33 @@ import {
 import { Carousel, CarouselItem, Tooltip } from "element-ui";
 import CampaignShortOverview from "@/components/Crowdfunding/CampaignShortOverview.vue";
 
+const campaigns = gql`
+  query {
+    campaignDetailses {
+      id
+      title
+      description
+      fundingGoal
+      pledgedFunds
+      backersNumber
+      image {
+        url
+      }
+      city
+      company {
+        id
+        razonSocial
+        nit
+        website
+        logo {
+          id
+          url
+        }
+      }
+    }
+  }
+`;
+
 const campaign = gql`
   query {
     campaignDetails(where: { id: "ck2bwebuaau770a30sqfgopcp" }) {
@@ -417,11 +344,15 @@ export default {
     CampaignShortOverview
   },
   data: () => ({
-    campaignDetails: null,
+    campaignDetailses: null,
+    campaignDetails: null
   }),
   apollo: {
     campaignDetails: {
       query: campaign
+    },
+    campaignDetailses: {
+      query: campaigns
     }
   }
 };

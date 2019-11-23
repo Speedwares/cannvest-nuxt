@@ -1,18 +1,17 @@
 <template>
-  <nuxt-link to="/campaigns/ck2bw1gsfasi20a30g4qye2z6">
+  <nuxt-link :to="'/campaigns/' + campaign.id ">
     <!-- <nuxt-child :key="$route.params.id" > -->
     <card type="profile">
       <div class="campaign-photo">
         <p style="color:transparent"></p>
       </div>
-      <img slot="avatar" class="img img-raised company-logo" :src="logo" />
-
+      <img slot="avatar" class="img img-raised company-logo" :src="campaign.company.logo.url" />
       <div class="card-body">
         <a :href="website">
-          <h4 class="card-title">{{ company }}</h4>
+          <h4 class="card-title">{{ campaign.company.razonSocial }}</h4>
         </a>
-        <h6 class="category text-gray">{{ title }}</h6>
-        <p class="card-description">{{ description }}</p>
+        <h6 class="category text-gray">{{ campaign.title }}</h6>
+        <p class="card-description">{{ campaign.description }}</p>
         <div class="price-container">
           <h5 class="price-left pull-left finance-data-title">
             Objetivo de la campaña:
@@ -33,7 +32,7 @@
           <div class="col-md-6 sides-border">
             <h5 class="card-title text-left finance-data-title">
               Inversionistas:
-              <span class="finance-data">{{ investors }}</span>
+              <span class="finance-data">{{ campaign.backersNumber }}</span>
             </h5>
           </div>
           <div class="col-md-12">
@@ -144,15 +143,15 @@ export default {
   props: ["campaign"],
   data: function() {
     return {
-      id: this.campaign.company.id,
-      company: this.campaign.company.razonSocial,
-      website: this.campaign.company.website,
-      logo: this.campaign.company.logo.url,
-      title: this.campaign.title,
-      description: this.campaign.description,
-      investors: this.campaign.backersNumber,
-      raised: this.campaign.pledgedFunds,
-      goal: this.campaign.fundingGoal,
+      // id: this.campaign.company.id,
+      // company: this.campaign.company.razonSocial,
+      // website: this.campaign.company.website,
+      // logo: this.campaign.company.logo.url,
+      // title: this.campaign.title,
+      // description: this.campaign.description,
+      // investors: this.campaign.backersNumber,
+      // raised: this.campaign.pledgedFunds,
+      // goal: this.campaign.fundingGoal,
       goalFormat: new Intl.NumberFormat("es-CO", {
         style: "currency",
         currency: "COP",
@@ -167,7 +166,7 @@ export default {
   },
   computed: {
     percentageRaised: function() {
-      return (this.raised / this.goal) * 100;
+      return (this.campaign.pledgedFunds / this.campaign.fundingGoal) * 100;
     }
   }
 };

@@ -10,14 +10,14 @@
         <div class="col-md-4 ml-auto mr-auto">
           <div
             class="image-container image-left"
-            :style="{ 'background-image' : 'url(' + project_photos[0].url + ' )' }"
+            :style="{ 'background-image' : 'url(' + project_photos[2].url + ' )' }"
           >
             <!-- First image on the left side -->
           </div>
 
           <div
             class="image-container middle-image"
-            :style="{ 'background-image' : 'url(' + project_photos[1].url + ' )' }"
+            :style="{ 'background-image' : 'url(' + project_photos[2].url + ' )' }"
           ></div>
 
           <!-- Second image on the left side of the article -->
