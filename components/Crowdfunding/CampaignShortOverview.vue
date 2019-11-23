@@ -143,15 +143,6 @@ export default {
   props: ["campaign"],
   data: function() {
     return {
-      // id: this.campaign.company.id,
-      // company: this.campaign.company.razonSocial,
-      // website: this.campaign.company.website,
-      // logo: this.campaign.company.logo.url,
-      // title: this.campaign.title,
-      // description: this.campaign.description,
-      // investors: this.campaign.backersNumber,
-      // raised: this.campaign.pledgedFunds,
-      // goal: this.campaign.fundingGoal,
       goalFormat: new Intl.NumberFormat("es-CO", {
         style: "currency",
         currency: "COP",
