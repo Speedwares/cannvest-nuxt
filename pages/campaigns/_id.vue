@@ -20,110 +20,8 @@
         <campaign-team :campaign="campaignDetails" />
       </div>
     </div>
-    <div class="section related-products" data-background-color="black">
-      <div class="container">
-        <h3 class="title text-center">You may also be interested in:</h3>
-        <div class="row">
-          <div class="col-sm-6 col-md-3">
-            <card type="product">
-              <img slot="image" class="img rounded" src="img/saint-laurent.jpg" />
-
-              <h6 class="category text-danger">Trending</h6>
-              <h4 class="card-title">
-                <a href="#pablo" class="card-link">Dolce & Gabbana</a>
-              </h4>
-              <div class="card-description">
-                Dolce & Gabbana's 'Greta' tote has been crafted in Italy from hard-wearing red
-                textured-leather.
-              </div>
-              <div class="card-footer">
-                <div class="price-container">
-                  <span class="price">€1,459</span>
-                </div>
-                <el-tooltip content="Add to Wishlist" placement="left">
-                  <n-button type="neutral" icon round class="pull-right">
-                    <i class="now-ui-icons ui-2_favourite-28"></i>
-                  </n-button>
-                </el-tooltip>
-              </div>
-            </card>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <card type="product">
-              <img slot="image" class="img rounded" src="img/gucci.jpg" />
-
-              <h6 class="category text-danger">Popular</h6>
-              <h4 class="card-title">
-                <a href="#pablo" class="card-link">Balmain</a>
-              </h4>
-              <div class="card-description">
-                Balmain's mid-rise skinny jeans are cut with stretch to ensure they retain their
-                second-skin fit but move comfortably.
-              </div>
-              <div class="card-footer">
-                <div class="price-container">
-                  <span class="price">€459</span>
-                </div>
-                <el-tooltip content="Add to Wishlist" placement="left">
-                  <n-button type="neutral" icon round class="pull-right">
-                    <i class="now-ui-icons ui-2_favourite-28"></i>
-                  </n-button>
-                </el-tooltip>
-              </div>
-            </card>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <card type="product">
-              <img slot="image" class="img rounded" src="img/wooyoungmi.jpg" />
-
-              <h6 class="category text-danger">Popular</h6>
-              <h4 class="card-title">
-                <a href="#pablo" class="card-link">Balenciaga</a>
-              </h4>
-              <div class="card-description">
-                Balenciaga's black textured-leather wallet is finished with the label's iconic
-                'Giant' studs. This is where you can...
-              </div>
-              <div class="card-footer">
-                <div class="price-container">
-                  <span class="price">€559</span>
-                </div>
-                <el-tooltip content="Add to Wishlist" placement="left">
-                  <n-button type="neutral" icon round class="pull-right">
-                    <i class="now-ui-icons ui-2_favourite-28"></i>
-                  </n-button>
-                </el-tooltip>
-              </div>
-            </card>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <card type="product">
-              <img slot="image" class="img rounded" src="img/saint-laurent1.jpg" />
-
-              <h6 class="category text-danger">Trending</h6>
-              <h4 class="card-title">
-                <a href="#pablo" class="card-link">Dolce & Gabbana</a>
-              </h4>
-              <div class="card-description">
-                Dolce & Gabbana's 'Greta' tote has been crafted in Italy from hard-wearing red
-                textured-leather.
-              </div>
-              <div class="card-footer">
-                <div class="price-container">
-                  <span class="price">€ 1,359</span>
-                </div>
-                <el-tooltip content="Add to Wishlist" placement="left">
-                  <n-button type="neutral" icon round class="pull-right">
-                    <i class="now-ui-icons ui-2_favourite-28"></i>
-                  </n-button>
-                </el-tooltip>
-              </div>
-            </card>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="footer footer-big footer-white">
+    <documents />
+    <!-- <footer class="footer footer-big footer-white">
       <div class="container">
         <div class="content">
           <div class="row">
@@ -233,7 +131,7 @@
           {{year}} Creative Tim All Rights Reserved.
         </div>
       </div>
-    </footer>
+    </footer>-->
   </div>
 </template>
 <script>
@@ -245,6 +143,7 @@ import CampaignOverviewBlock from "@/components/Crowdfunding/CampaignOverviewBlo
 import CompanyOverview from "@/components/Crowdfunding/CompanyOverview.vue";
 import ProjectDescription from "@/components/Crowdfunding/ProjectDescription.vue";
 import CampaignTeam from "@/components/Crowdfunding/CampaignTeam.vue";
+import Documents from "@/components/Crowdfunding/Documents.vue";
 
 const campaign = gql`
   query {
@@ -310,7 +209,8 @@ export default {
     CampaignOverviewBlock,
     CompanyOverview,
     ProjectDescription,
-    CampaignTeam
+    CampaignTeam,
+    Documents
   },
   data() {
     return {

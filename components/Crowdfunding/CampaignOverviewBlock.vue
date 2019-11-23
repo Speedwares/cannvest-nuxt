@@ -65,6 +65,10 @@
 </template>
 
 <style scoped>
+.company-logo {
+  margin-bottom: 10px;
+}
+
 .objetctive-title {
   color: #595959;
 }

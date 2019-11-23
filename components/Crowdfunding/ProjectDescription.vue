@@ -69,16 +69,7 @@ export default {
     return {
       projectTitle: this.campaign.projectTitle,
       project_description: this.campaign.projectDetailedDescription,
-      project_photos: this.campaign.projectPhotos,
-      company_description: this.campaign.company.description,
-      company_highlights: this.campaign.company.highlights,
-      facebook: this.campaign.company.facebook,
-      instagram: this.campaign.company.instagram,
-      linkedin: this.campaign.company.linkedin,
-      twitter: this.campaign.company.twitter,
-
-      website: this.campaign.company.website,
-      logo: this.campaign.company.logo.url
+      project_photos: this.campaign.projectPhotos
     };
   }
 };

@@ -20,13 +20,18 @@
             <h6 class="category text-info member-position">{{member.position}}</h6>
             <p class="card-description">{{member.description}}</p>
             <div class="card-footer">
-              <a href="#pablo" class="btn btn-icon btn-neutral btn-round">
+              <a
+                v-if="team.linkedin !== null"
+                :href="team.linkedin"
+                class="btn btn-icon btn-neutral btn-round"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="#pablo" class="btn btn-icon btn-neutral btn-round">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#pablo" class="btn btn-icon btn-neutral btn-round">
+              <a
+                v-if="team.email !== null"
+                :href="team.email"
+                class="btn btn-icon btn-neutral btn-round"
+              >
                 <i class="fas fab fa-envelope"></i>
               </a>
             </div>
