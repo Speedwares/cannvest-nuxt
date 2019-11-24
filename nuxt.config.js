@@ -1,3 +1,17 @@
+import gql from "graphql-tag";
+
+const campaigns = gql `
+  query {
+    campaignDetailses {
+      id     
+    }
+  }
+`;
+
+let dynamicRoutes = () => {
+  return this.$apollo.query(campaigns).map(campaign => `/campaigns/${campaign.id}`)
+}
+
 module.exports = {
   mode: 'universal',
   /*
@@ -127,11 +141,11 @@ module.exports = {
     extend(config, ctx) {}
   },
   generate: {
-    routes: [
-      '/campaigns/ck227vicv0eau0a30gmwkem40',
-      '/campaigns/ck228nbva0k1n0a30z4pmpwo6',
-      '/campaigns/ck2bwebuaau770a30sqfgopcp'
-    ]
+    // routes: [
+    //   '/campaigns/ck227vicv0eau0a30gmwkem40',
+    //   '/campaigns/ck228nbva0k1n0a30z4pmpwo6',
+    //   '/campaigns/ck2bwebuaau770a30sqfgopcp'
+    // ]
   },
   i18n: {
     vueI18n: {
@@ -166,6 +180,6 @@ module.exports = {
   apollo: {
     clientConfigs: {
       default: '@/apollo/client-configs/default.js'
-    }
+    },
   }
 }

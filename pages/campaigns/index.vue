@@ -54,6 +54,7 @@
       <div class="section">
         <div class="container">
           <h2 class="section-title">Campañas activas</h2>
+
           <div class="row">
             <div class="col-md-4 col-sm-6">
               <campaign-short-overview :campaign=" campaignDetailses[2] " />
@@ -299,33 +300,6 @@ const campaigns = gql`
   }
 `;
 
-const campaign = gql`
-  query {
-    campaignDetails(where: { id: "ck2bwebuaau770a30sqfgopcp" }) {
-      id
-      title
-      description
-      fundingGoal
-      pledgedFunds
-      backersNumber
-      image {
-        url
-      }
-      city
-      company {
-        id
-        razonSocial
-        nit
-        website
-        logo {
-          id
-          url
-        }
-      }
-    }
-  }
-`;
-
 export default {
   name: "campaigns",
   layout: "white-nav",
@@ -345,12 +319,9 @@ export default {
   },
   data: () => ({
     campaignDetailses: null,
-    campaignDetails: null
+    campId: null
   }),
   apollo: {
-    campaignDetails: {
-      query: campaign
-    },
     campaignDetailses: {
       query: campaigns
     }
