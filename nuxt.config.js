@@ -146,6 +146,7 @@ module.exports = {
     //   '/campaigns/ck228nbva0k1n0a30z4pmpwo6',
     //   '/campaigns/ck2bwebuaau770a30sqfgopcp'
     // ]
+    routes: dynamicRoutes
   },
   i18n: {
     vueI18n: {
