@@ -19,6 +19,7 @@
     "element-ui": "^2.11.1",
     "firebase": "^6.5.0",
     "graphql-tag": "^2.10.1",
+    "node-fetch": "^2.6.0",
     "nouislider": "^11.1.0",
     "nuxt": "^2.8.1",
     "nuxt-i18n": "^6.0.2",

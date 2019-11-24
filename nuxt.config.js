@@ -1,136 +1,158 @@
 import gql from "graphql-tag";
+import fetch from "node-fetch";
 
-const campaigns = gql `
+import { ApolloClient } from "apollo-client";
+
+import { HttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+
+// Replace this with your project's endpoint
+const GRAPHCMS_API =
+  "https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master";
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: GRAPHCMS_API,
+    fetch: fetch
+  }),
+  cache: new InMemoryCache(),
+  defaultHttpLink: false
+});
+
+const campaigns = gql`
   query {
     campaignDetailses {
-      id     
+      id
     }
   }
 `;
 
 let dynamicRoutes = () => {
-  return this.$apollo.query(campaigns).map(campaign => `/campaigns/${campaign.id}`)
-}
+  return client.query(campaigns).map(campaign => `/campaigns/${campaign.id}`);
+};
 
 module.exports = {
-  mode: 'universal',
+  mode: "universal",
   /*
    ** Headers of the page
    */
   router: {
-    base: '/',
-    linkExactActiveClass: 'active',
-    mode: 'history',
-    scrollBehavior: (to) => {
+    base: "/",
+    linkExactActiveClass: "active",
+    mode: "history",
+    scrollBehavior: to => {
       if (to.hash) {
         return {
           selector: to.hash
-        }
+        };
       } else {
         return {
           x: 0,
           y: 0
-        }
+        };
       }
     }
   },
   head: {
-    title: 'Cannvest',
-    meta: [{
-        charset: 'utf-8'
+    title: "Cannvest",
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no'
+        name: "viewport",
+        content:
+          "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no"
       },
       {
-        name: 'keywords',
-        content: 'crowdfunding, cannabis, blockchain, colombia, invertir, invest'
+        name: "keywords",
+        content:
+          "crowdfunding, cannabis, blockchain, colombia, invertir, invest"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: 'Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis'
-      },
+        hid: "description",
+        name: "description",
+        content:
+          "Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis"
+      }
     ],
-    link: [{
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/cannvest-logo-icon.ico'
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/cannvest-logo-icon.ico"
       },
       {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Montserrat:400,700,200|Open+Sans+Condensed:700'
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=Montserrat:400,700,200|Open+Sans+Condensed:700"
       },
       {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.0.6/css/all.css'
+        rel: "stylesheet",
+        href: "https://use.fontawesome.com/releases/v5.0.6/css/all.css"
       },
       {
-        rel: 'stylesheet',
-        href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css',
-        crossorigin: 'anonymous'
-      },
+        rel: "stylesheet",
+        href:
+          "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css",
+        crossorigin: "anonymous"
+      }
     ]
   },
   /*
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: "#fff"
   },
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/sass/now-ui-kit.scss',
-    '~/assets/sass/demo.scss'
-  ],
+  css: ["~/assets/sass/now-ui-kit.scss", "~/assets/sass/demo.scss"],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
-      src: '~/plugins/globalDirectives.js',
+  plugins: [
+    {
+      src: "~/plugins/globalDirectives.js",
       ssr: false
     },
     {
-      src: '~/plugins/element-ui.js'
+      src: "~/plugins/element-ui.js"
     },
     {
-      src: '~/plugins/now-ui-kit'
+      src: "~/plugins/now-ui-kit"
     },
     {
-      src: '~/plugins/firebase.js'
+      src: "~/plugins/firebase.js"
     },
     {
-      src: '~/plugins/hotjar.js',
+      src: "~/plugins/hotjar.js",
       ssr: false
-    },
-
+    }
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
-    'nuxt-i18n',
-    '@nuxtjs/google-analytics',
-    '@nuxtjs/apollo'
-
+    "@nuxtjs/pwa",
+    "nuxt-i18n",
+    "@nuxtjs/google-analytics",
+    "@nuxtjs/apollo"
   ],
   /*
    ** Build configuration
    */
   build: {
     analyze: true,
-    extractCSS: process.env.NODE_ENV === 'production',
+    extractCSS: process.env.NODE_ENV === "production",
     babel: {
       plugins: [
         [
-          'component',
+          "component",
           {
-            libraryName: 'element-ui',
-            styleLibraryName: 'theme-chalk'
+            libraryName: "element-ui",
+            styleLibraryName: "theme-chalk"
           }
         ]
       ]
@@ -150,28 +172,29 @@ module.exports = {
   },
   i18n: {
     vueI18n: {
-      fallbackLocale: 'es',
+      fallbackLocale: "es"
     },
-    locales: [{
-        name: 'Español',
-        code: 'es',
-        iso: 'es-ES',
-        file: 'es-ES.js'
+    locales: [
+      {
+        name: "Español",
+        code: "es",
+        iso: "es-ES",
+        file: "es-ES.js"
       },
       {
-        name: 'English',
-        code: 'en',
-        iso: 'en-US',
-        file: 'en-US.js'
+        name: "English",
+        code: "en",
+        iso: "en-US",
+        file: "en-US.js"
       }
     ],
-    langDir: 'lang/',
-    defaultLocale: 'es',
+    langDir: "lang/",
+    defaultLocale: "es",
     lazy: true,
-    parsePages: false,
+    parsePages: false
   },
   googleAnalytics: {
-    id: 'UA-141781891-1',
+    id: "UA-141781891-1",
     debug: {
       enabled: false, // false is default value
       trace: false, // default value
@@ -180,7 +203,7 @@ module.exports = {
   },
   apollo: {
     clientConfigs: {
-      default: '@/apollo/client-configs/default.js'
-    },
+      default: "@/apollo/client-configs/default.js"
+    }
   }
-}
+};
