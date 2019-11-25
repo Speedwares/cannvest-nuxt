@@ -1,14 +1,17 @@
 import gql from "graphql-tag";
-import fetch from "node-fetch";
-
-import { ApolloClient } from "apollo-client";
-
-import { HttpLink } from "apollo-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import ApolloClient from "apollo-client";
+import fetch from 'node-fetch';
+import {
+  HttpLink
+} from 'apollo-link-http'
+import {
+  InMemoryCache
+} from 'apollo-cache-inmemory'
 
 // Replace this with your project's endpoint
 const GRAPHCMS_API =
-  "https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master";
+  'https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master'
+
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -17,9 +20,10 @@ const client = new ApolloClient({
   }),
   cache: new InMemoryCache(),
   defaultHttpLink: false
-});
+})
 
-const campaigns = gql`
+
+const campaigns = gql `
   query {
     campaignDetailses {
       id
@@ -27,9 +31,27 @@ const campaigns = gql`
   }
 `;
 
+console.log(GRAPHCMS_API)
+
+//DYNAMIC ROUTING PENDING
+
+// let dynamicRoutes = () => {
+//   return apolloFetch({
+//     campaigns
+//   }).then(result => {
+//     const {
+//       data
+//     } = result
+//     return data.map(campaign => `/campaigns/${campaign.id}`)
+//   })
+//   // .query(campaigns).map(campaign => `/campaigns/${campaign.id}`);
+// };
+
 let dynamicRoutes = () => {
-  return client.query(campaigns).map(campaign => `/campaigns/${campaign.id}`);
-};
+  return client.query({
+    campaigns
+  }).then(result => console.log(result))
+}
 
 module.exports = {
   mode: "universal",
@@ -55,37 +77,31 @@ module.exports = {
   },
   head: {
     title: "Cannvest",
-    meta: [
-      {
+    meta: [{
         charset: "utf-8"
       },
       {
         name: "viewport",
-        content:
-          "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no"
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no"
       },
       {
         name: "keywords",
-        content:
-          "crowdfunding, cannabis, blockchain, colombia, invertir, invest"
+        content: "crowdfunding, cannabis, blockchain, colombia, invertir, invest"
       },
       {
         hid: "description",
         name: "description",
-        content:
-          "Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis"
+        content: "Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis"
       }
     ],
-    link: [
-      {
+    link: [{
         rel: "icon",
         type: "image/x-icon",
         href: "/cannvest-logo-icon.ico"
       },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css?family=Montserrat:400,700,200|Open+Sans+Condensed:700"
+        href: "https://fonts.googleapis.com/css?family=Montserrat:400,700,200|Open+Sans+Condensed:700"
       },
       {
         rel: "stylesheet",
@@ -93,8 +109,7 @@ module.exports = {
       },
       {
         rel: "stylesheet",
-        href:
-          "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css",
+        href: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css",
         crossorigin: "anonymous"
       }
     ]
@@ -112,8 +127,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    {
+  plugins: [{
       src: "~/plugins/globalDirectives.js",
       ssr: false
     },
@@ -163,19 +177,19 @@ module.exports = {
     extend(config, ctx) {}
   },
   generate: {
-    // routes: [
-    //   '/campaigns/ck227vicv0eau0a30gmwkem40',
-    //   '/campaigns/ck228nbva0k1n0a30z4pmpwo6',
-    //   '/campaigns/ck2bwebuaau770a30sqfgopcp'
-    // ]
-    routes: dynamicRoutes
+    //MANUAL ROUTING FOR THE MOMENT
+    routes: [
+      "/campaigns/ck227vicv0eau0a30gmwkem40",
+      "/campaigns/ck228nbva0k1n0a30z4pmpwo6",
+      "/campaigns/ck2bwebuaau770a30sqfgopcp"
+    ]
+    // routes: dynamicRoutes
   },
   i18n: {
     vueI18n: {
       fallbackLocale: "es"
     },
-    locales: [
-      {
+    locales: [{
         name: "Español",
         code: "es",
         iso: "es-ES",
