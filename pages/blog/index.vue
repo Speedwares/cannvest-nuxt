@@ -1,146 +1,201 @@
 <template>
-    <div class="wrapper blog-posts">
-        <div class="page-header page-header-small rellax-header">
-            <div class="page-header-image" style="background-image: url('img/bg44.jpg') ;">
-            </div>
-            <div class="content-center">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">A Place for Entrepreneurs to Share and Discover New Stories</h2>
-                        <a href="#button" class="btn btn-success btn-round  btn-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#button" class="btn btn-success btn-round  btn-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <div class="wrapper blog-posts">
+    <!-- HEADER SECTION -->
+    <div class="page-header page-header-small rellax-header">
+      <div class="page-header-image" style="background-image: url('img/bushes.jpg') ;"></div>
+      <div class="content-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h2 class="title">Todas las historias de Cannvest</h2>
+            <a href="https://facebook.com/cannvest" class="btn btn-info btn-round btn-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/cannvest" class="btn btn-info btn-round btn-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/cannvest"
+              class="btn btn-info btn-round btn-icon"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/cannvst/" class="btn btn-info btn-round btn-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
         </div>
-        <div class="projects-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 px-0">
-                        <card type="background" class="card-fashion"
-                              style="background-image: url('img/project10.jpg')">
-                            <div class="card-title text-left">
-                                <h2>
-                                    <a href="#pablo">
-                                        The world's biggest yacht sets sail. It has lasers.
-                                    </a>
-                                </h2>
-                            </div>
-                            <div class="card-footer text-left">
-                                <div class="stats">
-                                        <span>
-                                            <i class="now-ui-icons users_circle-08"></i>Nicholas Deleon
-                                        </span>
-                                    <span>
-                                            <i class="now-ui-icons tech_watch-time"></i> June 2, 2017
-                                        </span>
-                                </div>
-                                <div class="stats-link pull-right">
-                                    <a href="#pablo" class="footer-link">Yachts</a>
-                                </div>
-                            </div>
+      </div>
+    </div>
+    <div class="projects-4">
+      <div class="container-fluid">
+        <div v-if="blogPosts.length == 1" class="row">
+          <div class="col-md-6 px-0 ml-auto mr-auto text-center single-post">
+            <card
+              type="background"
+              class="card-fashion"
+              :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
+            >
+              <div class="card-title text-left">
+                <h2>
+                  <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
+                </h2>
+              </div>
+              <div class="card-footer text-left">
+                <div class="stats">
+                  <span>
+                    <i class="now-ui-icons users_circle-08"></i>
+                    {{ blogPosts[0].author }}
+                  </span>
+                  <span>
+                    <i class="now-ui-icons tech_watch-time"></i>
+                    {{ blogPosts[0].createdAt.slice(0, 10) }}
+                  </span>
+                </div>
+                <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
+                  <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
+                  <a href="#">{{blogPosts[0].keywords[1]}}</a>
+                </div>
+              </div>
+            </card>
+          </div>
+        </div>
 
-                        </card>
-                    </div>
-                    <div class="col-md-3 px-0">
-                        <div class="card card-fashion">
-                          <div class="card-title">
-                            <h4>
-                              <a href="#pablo">
-                                Why Early Sailors Were Stalled for Millennia in the...
-                              </a>
-                            </h4>
-                          </div>
-                          <div class="card-body">
-                            <div class="card-footer">
-                              <div class="stats">
-                                        <span>
-                                            <i class="now-ui-icons users_circle-08"></i>Jon Russell
-                                        </span>
-                                <span>
-                                            <i class="now-ui-icons tech_watch-time"></i> June 2, 2017
-                                        </span>
-                              </div>
-                              <div class="stats-link pull-right">
-                                <a href="#pablo">Sea</a>&sbquo;
-                                <a href="#pablo">Magazine</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 px-0">
-                        <card type="background" class="card-fashion"
-                              style="background-image: url('img/project11.jpg')">
-                        </card>
-                    </div>
+        <div v-if="blogPosts.length > 1" class="row">
+          <div class="col-md-6 px-0">
+            <card
+              type="background"
+              class="card-fashion"
+              :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
+            >
+              <div class="card-title text-left">
+                <h2>
+                  <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
+                </h2>
+              </div>
+              <div class="card-footer text-left">
+                <div class="stats">
+                  <span>
+                    <i class="now-ui-icons users_circle-08"></i>
+                    {{ blogPosts[0].author }}
+                  </span>
+                  <span>
+                    <i class="now-ui-icons tech_watch-time"></i>
+                    {{ blogPosts[0].createdAt.slice(0, 10) }}
+                  </span>
                 </div>
-                <div class="row">
-                    <div class="col-md-3 px-0">
-                        <card type="background" class="card-fashion"
-                              style="background-image: url('img/project12.jpg')">
-                        </card>
-                    </div>
-                    <div class="col-md-3 px-0">
-                        <div class="card card-fashion arrow-left">
-                            <div class="card-title">
-                                <h4>
-                                    <a href="#pablo">
-                                        My Depressing Summers in Belize
-                                    </a>
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-footer">
-                                    <div class="stats">
-                                        <span>
-                                            <i class="now-ui-icons users_circle-08"></i>John Bruno
-                                        </span>
-                                        <span>
-                                            <i class="now-ui-icons tech_watch-time"></i> June 2, 2017
-                                        </span>
-                                    </div>
-                                    <div class="stats-link pull-right">
-                                        <a href="#pablo">Opinion</a>&sbquo;
-                                        <a href="#pablo">Outdoor</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 px-0">
-                        <card type="background" class="card-fashion"
-                              style="background-image: url('img/project13.jpg')">
-                            <div class="card-title text-left">
-                                <h2>
-                                    <a href="#pablo">China Wants Fish, So Africa Goes Hungry</a>
-                                </h2>
-                            </div>
-                            <div class="card-footer text-left">
-                                <div class="stats">
-                                        <span>
-                                            <i class="now-ui-icons users_circle-08"></i>Joanna Klein
-                                        </span>
-                                    <span>
-                                            <i class="now-ui-icons tech_watch-time"></i> June 2, 2017
-                                        </span>
-                                </div>
-                                <div class="stats-link pull-right">
-                                    <a href="#pablo" class="footer-link">People</a>
-                                </div>
-                            </div>
-                        </card>
-                    </div>
+                <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
+                  <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
+                  <a href="#">{{blogPosts[0].keywords[1]}}</a>
                 </div>
+              </div>
+            </card>
+          </div>
+          <div class="col-md-3 px-0">
+            <div class="card card-fashion">
+              <div class="card-title">
+                <h4>
+                  <nuxt-link :to="'/blog/' + blogPosts[1].slug ">{{ blogPosts[1].title }}</nuxt-link>
+                </h4>
+              </div>
+              <div class="card-body">
+                <div class="card-footer">
+                  <div class="stats">
+                    <span>
+                      <i class="now-ui-icons users_circle-08"></i>
+                      {{ blogPosts[1].author }}
+                    </span>
+                    <span>
+                      <i class="now-ui-icons tech_watch-time"></i>
+                      {{ blogPosts[1].createdAt.slice(0, 10) }}
+                    </span>
+                  </div>
+                  <div v-if="blogPosts[1].keywords.length > 0" class="stats-link pull-right">
+                    <a href="#">{{blogPosts[1].keywords[0]}}</a>&sbquo;
+                    <a href="#">{{blogPosts[1].keywords[1]}}</a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-md-3 px-0">
+            <card
+              type="background"
+              class="card-fashion"
+              :style="{ 'background-image' : 'url(' + blogPosts[1].coverImage.url + ' )' }"
+            ></card>
+          </div>
         </div>
-        <div class="main">
-            <div class="container">
-                <div class="section">
+        <div v-if="blogPosts.length > 2" class="row">
+          <div class="col-md-3 px-0">
+            <card
+              type="background"
+              class="card-fashion"
+              :style="{ 'background-image' : 'url(' + blogPosts[2].coverImage.url + ' )' }"
+            ></card>
+          </div>
+          <div class="col-md-3 px-0">
+            <div class="card card-fashion">
+              <div class="card-title">
+                <h4>
+                  <nuxt-link :to="'/blog/' + blogPosts[2].slug ">{{ blogPosts[2].title }}</nuxt-link>
+                </h4>
+              </div>
+              <div class="card-body">
+                <div class="card-footer">
+                  <div class="stats">
+                    <span>
+                      <i class="now-ui-icons users_circle-08"></i>
+                      {{ blogPosts[2].author }}
+                    </span>
+                    <span>
+                      <i class="now-ui-icons tech_watch-time"></i>
+                      {{ blogPosts[2].createdAt.slice(0, 10) }}
+                    </span>
+                  </div>
+                  <div v-if="blogPosts[2].keywords.length > 0" class="stats-link pull-right">
+                    <a href="#">{{blogPosts[2].keywords[0]}}</a>&sbquo;
+                    <a href="#">{{blogPosts[2].keywords[1]}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 px-0">
+            <card
+              type="background"
+              class="card-fashion"
+              :style="{ 'background-image' : 'url(' + blogPosts[3].coverImage.url + ' )' }"
+            >
+              <div class="card-title text-left">
+                <h2>
+                  <nuxt-link :to="'/blog/' + blogPosts[3].slug ">{{ blogPosts[3].title }}</nuxt-link>
+                </h2>
+              </div>
+              <div class="card-footer text-left">
+                <div class="stats">
+                  <span>
+                    <i class="now-ui-icons users_circle-08"></i>
+                    {{ blogPosts[3].author }}
+                  </span>
+                  <span>
+                    <i class="now-ui-icons tech_watch-time"></i>
+                    {{ blogPosts[3].createdAt.slice(0, 10) }}
+                  </span>
+                </div>
+                <div v-if="blogPosts[3].keywords.length > 0" class="stats-link pull-right">
+                  <a href="#">{{blogPosts[3].keywords[0]}}</a>&sbquo;
+                  <a href="#">{{blogPosts[3].keywords[1]}}</a>
+                </div>
+              </div>
+            </card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container">
+        <!-- //Sección de otros posts -->
+        <!-- <div class="section">
                     <h3 class="title text-center">You may also be interested in</h3>
                     <br/>
                     <div class="row">
@@ -149,12 +204,12 @@
                                 <img slot="image" class="img rounded img-raised" src="img/bg5.jpg"/>
                                 <h6 class="category text-info">Enterprise</h6>
                                 <h4 class="card-title">
-                                    <a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>
+                                    <a href="#">Autodesk looks to future of 3D printing with Project Escher</a>
                                 </h4>
                                 <p class="card-description">
                                     Like so many organizations these days, Autodesk is a company in transition. It
                                     was until recently a traditional boxed software company selling licenses.
-                                    <a href="#pablo"> Read More </a>
+                                    <a href="#"> Read More </a>
                                 </p>
                                 <div class="author">
                                     <img v-lazy="'img/olivia.jpg'" alt="..." class="avatar img-raised">
@@ -169,12 +224,12 @@
                                     Startups
                                 </h6>
                                 <h4 class="card-title">
-                                    <a href="#pablo">Lyft launching cross-platform service this week</a>
+                                    <a href="#">Lyft launching cross-platform service this week</a>
                                 </h4>
                                 <p class="card-description">
                                     Like so many organizations these days, Autodesk is a company in transition. It was
                                     until recently a traditional boxed software company selling licenses.
-                                    <a href="#pablo"> Read More </a>
+                                    <a href="#"> Read More </a>
                                 </p>
                                 <div class="author">
                                     <img v-lazy="'img/michael.jpg'" alt="..." class="avatar img-raised">
@@ -185,7 +240,7 @@
                         <div class="col-md-4">
                             <div class="card card-plain card-blog">
                                 <div class="card-image">
-                                    <a href="#pablo">
+                                    <a href="#">
                                         <img class="img rounded img-raised" src="img/bg21.jpg"/>
                                     </a>
                                 </div>
@@ -194,12 +249,12 @@
                                         <i class="now-ui-icons media-2_sound-wave"></i> Enterprise
                                     </h6>
                                     <h4 class="card-title">
-                                        <a href="#pablo">6 insights into the French Fashion landscape</a>
+                                        <a href="#">6 insights into the French Fashion landscape</a>
                                     </h4>
                                     <p class="card-description">
                                         Like so many organizations these days, Autodesk is a company in transition. It
                                         was until recently a traditional boxed software company selling licenses.
-                                        <a href="#pablo"> Read More </a>
+                                        <a href="#"> Read More </a>
                                     <div class="author">
                                         <img v-lazy="'img/james.jpg'" alt="..." class="avatar img-raised">
                                         <span>James Newman</span>
@@ -209,70 +264,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="section pt-0 pb-0">
-                <div class="team-3 section-image" style="background-image: url('img/bg26.jpg')">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 ml-auto mr-auto text-center">
-                                <h2 class="title">Our little team.</h2>
-                                <h4 class="description">
-                                    This is the paragraph where you can write more details about your product. Keep you
-                                    user engaged by providing meaningful information.
-                                </h4>
-                            </div>
-                            <div class="col-xl-6 col-lg-7 ml-auto mr-auto">
-                                <card type="profile">
-                                    <div slot="raw-content" class="row">
-                                        <div class="col-md-5">
-                                            <div class="card-image">
-                                                <a href="#pablo">
-                                                    <img class="img" src="img/olivia.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="card-body">
-                                                <h3 class="card-title">Ariana Hazel</h3>
-                                                <h6 class="category text-success"> Fashion Designer</h6>
-                                                <p class="card-description">
-                                                    Happiness resides not in possessions, and not in gold, happiness
-                                                    dwells in the soul...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </card>
-                            </div>
-                            <div class="col-xl-6 col-lg-7 ml-auto mr-auto">
-                                <card type="profile">
-                                    <div slot="raw-content" class="row">
-                                        <div class="col-md-5">
-                                            <div class="card-image">
-                                                <a href="#pablo">
-                                                    <img class="img" src="img/james.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="card-body">
-                                                <h3 class="card-title">Ryan Samuel</h3>
-                                                <h6 class="category text-success">Financial Examiner</h6>
-                                                <p class="card-description">
-                                                    Today you are you! That is truer than true! There is no one alive
-                                                    who is you-er than you!..
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </card>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="subscribe-line subscribe-line-white">
+        </div>-->
+      </div>
+      <!-- <div class="subscribe-line subscribe-line-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -299,9 +293,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <footer class="footer " data-background-color="black">
+      </div>-->
+    </div>
+    <!-- <footer class="footer " data-background-color="black">
             <div class="container">
                 <div class="content">
                     <div class="row">
@@ -309,22 +303,22 @@
                             <h5>About Us</h5>
                             <ul class="links-vertical">
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Blog
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Presentation
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Contact Us
                                     </a>
                                 </li>
@@ -334,32 +328,32 @@
                             <h5>Market</h5>
                             <ul class="links-vertical">
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Sales FAQ
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         How to Register
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Sell Goods
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Receive Payment
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Transactions Issues
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="text-muted">
+                                    <a href="#" class="text-muted">
                                         Affiliates Program
                                     </a>
                                 </li>
@@ -386,31 +380,31 @@
                             <h5>Follow Us</h5>
                             <ul class="social-buttons">
                                 <li>
-                                    <a href="#pablo" class="btn btn-icon btn-neutral btn-twitter btn-round">
+                                    <a href="#" class="btn btn-icon btn-neutral btn-twitter btn-round">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                     &nbsp;
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="btn btn-icon btn-neutral btn-facebook btn-round">
+                                    <a href="#" class="btn btn-icon btn-neutral btn-facebook btn-round">
                                         <i class="fab fa-facebook-square"></i>
                                     </a>
                                     &nbsp;
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="btn btn-icon btn-neutral btn-dribbble btn-round">
+                                    <a href="#" class="btn btn-icon btn-neutral btn-dribbble btn-round">
                                         <i class="fab fa-dribbble"></i>
                                     </a>
                                     &nbsp;
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="btn btn-icon btn-neutral btn-google btn-round">
+                                    <a href="#" class="btn btn-icon btn-neutral btn-google btn-round">
                                         <i class="fab fa-google-plus"></i>
                                     </a>
                                     &nbsp;
                                 </li>
                                 <li>
-                                    <a href="#pablo" class="btn btn-icon btn-neutral btn-instagram btn-round">
+                                    <a href="#" class="btn btn-icon btn-neutral btn-instagram btn-round">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                     &nbsp;
@@ -434,29 +428,68 @@
                     {{year}} Creative Tim All Rights Reserved.
                 </div>
             </div>
-        </footer>
-    </div>
+    </footer>-->
+  </div>
 </template>
+
+<style scoped>
+.single-post {
+  margin-top: 2em;
+}
+</style>
+
 <script>
-  import { Card, Button, FormGroupInput } from '@/components';
-  import initParallax from '@/utils/initParallax'
-  export default {
-    name: 'blog-posts',
-    layout: 'default-no-footer',
-    components: {
-      Card,
-      [Button.name]: Button,
-      [FormGroupInput.name]: FormGroupInput
-    },
-    data() {
-      return {
-        year: new Date().getFullYear()
+import gql from "graphql-tag";
+
+import { Card, Button, FormGroupInput } from "@/components";
+import initParallax from "@/utils/initParallax";
+
+const posts = gql`
+  query {
+    blogPosts {
+      id
+      slug
+      title
+      subtitle
+      author
+      coverImage {
+        id
+        url
       }
-    },
-    mounted() {
-      initParallax()
+      content {
+        markdown
+      }
+      createdAt
+      keywords
     }
   }
+`;
+
+export default {
+  name: "blog-posts",
+  layout: "white-nav",
+  components: {
+    Card,
+    [Button.name]: Button,
+    [FormGroupInput.name]: FormGroupInput
+  },
+  data: () => ({
+    blogPosts: null
+  }),
+  apollo: {
+    blogPosts: {
+      query: posts
+    }
+  },
+  computed: {
+    hours: function() {
+      const dt = Date.parse(this.blogPosts[0].createdAt);
+      return this.blogPosts[0].createdAt.slice(0, 10);
+    }
+  },
+  mounted() {
+    initParallax();
+  }
+};
 </script>
-<style>
-</style>
+

@@ -186,7 +186,11 @@ module.exports = {
       "/campaigns/ck227vicv0eau0a30gmwkem40",
       "/campaigns/ck228nbva0k1n0a30z4pmpwo6",
       "/campaigns/ck2bwebuaau770a30sqfgopcp",
-      "/blog/primer-post"
+      "/blog/primer-post",
+      "/blog/segundo-post",
+      "/blog/tercer-post",
+
+
     ]
     // routes: dynamicRoutes
   },

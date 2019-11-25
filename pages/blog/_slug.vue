@@ -175,7 +175,7 @@ const post = gql`
       content {
         markdown
       }
-      date
+      createdAt
     }
   }
 `;
