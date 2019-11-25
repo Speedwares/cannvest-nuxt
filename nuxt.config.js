@@ -58,11 +58,12 @@ module.exports = {
   /*
    ** Headers of the page
    */
+
   router: {
-    base: "/",
-    linkExactActiveClass: "active",
-    mode: "history",
-    scrollBehavior: to => {
+    base: '/',
+    linkExactActiveClass: 'active',
+    mode: 'history',
+    scrollBehavior: (to) => {
       if (to.hash) {
         return {
           selector: to.hash
@@ -71,10 +72,13 @@ module.exports = {
         return {
           x: 0,
           y: 0
-        };
+        }
       }
     }
   },
+
+
+
   head: {
     title: "Cannvest",
     meta: [{
