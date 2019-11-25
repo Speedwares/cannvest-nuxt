@@ -147,6 +147,10 @@ module.exports = {
     {
       src: "~/plugins/hotjar.js",
       ssr: false
+    },
+    {
+      src: "~/plugins/facebook.js",
+      ssr: false
     }
   ],
   /*

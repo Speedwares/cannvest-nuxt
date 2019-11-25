@@ -91,9 +91,9 @@
           <i class="now-ui-icons tech_mobile"></i> Signup Page
         </nav-link>
       </drop-down>-->
-      <li>
+      <!-- <li>
         <nav-link class="nav-text nav-link" to="/blog">Blog</nav-link>
-      </li>
+      </li>-->
       <li>
         <a class="nav-link social-icon" href="https://www.linkedin.com/company/cannvest">
           <i class="fab fa-linkedin-in"></i>
