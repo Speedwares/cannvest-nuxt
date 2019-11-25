@@ -181,8 +181,8 @@ module.exports = {
     routes: [
       "/campaigns/ck227vicv0eau0a30gmwkem40",
       "/campaigns/ck228nbva0k1n0a30z4pmpwo6",
-      "/campaigns/ck2bwebuaau770a30sqfgopcp",
-      "/blog/primer-post"
+      "/campaigns/ck2bwebuaau770a30sqfgopcp"
+      // "/blog/primer-post"
     ]
     // routes: dynamicRoutes
   },
