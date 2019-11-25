@@ -1,37 +1,37 @@
-import gql from "graphql-tag";
-import ApolloClient from "apollo-client";
-import fetch from 'node-fetch';
-import {
-  HttpLink
-} from 'apollo-link-http'
-import {
-  InMemoryCache
-} from 'apollo-cache-inmemory'
+// import gql from "graphql-tag";
+// import ApolloClient from "apollo-client";
+// import fetch from 'node-fetch';
+// import {
+//   HttpLink
+// } from 'apollo-link-http'
+// import {
+//   InMemoryCache
+// } from 'apollo-cache-inmemory'
 
-// Replace this with your project's endpoint
-const GRAPHCMS_API =
-  'https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master'
-
-
-const client = new ApolloClient({
-  link: new HttpLink({
-    uri: GRAPHCMS_API,
-    fetch: fetch
-  }),
-  cache: new InMemoryCache(),
-  defaultHttpLink: false
-})
+// // Replace this with your project's endpoint
+// const GRAPHCMS_API =
+//   'https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master'
 
 
-const campaigns = gql `
-  query {
-    campaignDetailses {
-      id
-    }
-  }
-`;
+// const client = new ApolloClient({
+//   link: new HttpLink({
+//     uri: GRAPHCMS_API,
+//     fetch: fetch
+//   }),
+//   cache: new InMemoryCache(),
+//   defaultHttpLink: false
+// })
 
-console.log(GRAPHCMS_API)
+
+// const campaigns = gql `
+//   query {
+//     campaignDetailses {
+//       id
+//     }
+//   }
+// `;
+
+// console.log(GRAPHCMS_API)
 
 //DYNAMIC ROUTING PENDING
 
@@ -47,11 +47,11 @@ console.log(GRAPHCMS_API)
 //   // .query(campaigns).map(campaign => `/campaigns/${campaign.id}`);
 // };
 
-let dynamicRoutes = () => {
-  return client.query({
-    campaigns
-  }).then(result => console.log(result))
-}
+// let dynamicRoutes = () => {
+//   return client.query({
+//     campaigns
+//   }).then(result => console.log(result))
+// }
 
 module.exports = {
   mode: "universal",
@@ -66,7 +66,7 @@ module.exports = {
       if (to.hash) {
         return {
           selector: to.hash
-        };
+        }
       } else {
         return {
           x: 0,
@@ -181,8 +181,8 @@ module.exports = {
     routes: [
       "/campaigns/ck227vicv0eau0a30gmwkem40",
       "/campaigns/ck228nbva0k1n0a30z4pmpwo6",
-      "/campaigns/ck2bwebuaau770a30sqfgopcp"
-      // "/blog/primer-post"
+      "/campaigns/ck2bwebuaau770a30sqfgopcp",
+      "/blog/primer-post"
     ]
     // routes: dynamicRoutes
   },
