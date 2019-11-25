@@ -3,13 +3,13 @@
     <div class="page-header page-header-small rellax-header">
       <div
         class="page-header-image"
-        :style="{ 'background-image' : 'url(' +  blogPosts[0].coverImage.url  + ' )' }"
+        :style="{ 'background-image' : 'url(' +  blogPost.coverImage.url  + ' )' }"
       ></div>
       <div class="content-center">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">{{ blogPosts[0].title }}</h2>
-            <h4>{{ blogPosts[0].subtitle }}</h4>
+            <h2 class="title">{{ blogPost.title }}</h2>
+            <h4>{{ blogPost.subtitle }}</h4>
           </div>
         </div>
       </div>
@@ -39,7 +39,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
-              <vue-markdown>{{ blogPosts[0].content.markdown }}</vue-markdown>
+              <h1>{{ blogPost }}</h1>
+
+              <vue-markdown>{{ blogPost.content.markdown }}</vue-markdown>
 
               <!-- <h3 class="title">The Castle Looks Different at Night...</h3>
               <p>
@@ -159,9 +161,9 @@ import {
 } from "@/components";
 import initParallax from "@/utils/initParallax";
 
-const posts = gql`
+const post = gql`
   query {
-    blogPosts {
+    blogPost(where: { slug: "primer-post" }) {
       id
       slug
       title
@@ -193,12 +195,12 @@ export default {
   },
   data() {
     return {
-      blogPosts: null
+      blogPost: null
     };
   },
   apollo: {
-    blogPosts: {
-      query: posts
+    blogPost: {
+      query: post
     }
   },
   mounted() {

@@ -91,7 +91,7 @@ module.exports = {
       {
         hid: "description",
         name: "description",
-        content: "Crowdfunding for the cannabis industry. Crowdfunding para la industria del cannabis"
+        content: "Crowdfunding for the cannabis industry in Colombia. Crowdfunding para la industria del cannabis en Colombia"
       }
     ],
     link: [{
@@ -181,7 +181,8 @@ module.exports = {
     routes: [
       "/campaigns/ck227vicv0eau0a30gmwkem40",
       "/campaigns/ck228nbva0k1n0a30z4pmpwo6",
-      "/campaigns/ck2bwebuaau770a30sqfgopcp"
+      "/campaigns/ck2bwebuaau770a30sqfgopcp",
+      "/blog/primer-post"
     ]
     // routes: dynamicRoutes
   },
