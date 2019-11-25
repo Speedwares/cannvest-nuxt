@@ -92,6 +92,9 @@
         </nav-link>
       </drop-down>-->
       <li>
+        <nav-link class="nav-text nav-link" to="/blog">Blog</nav-link>
+      </li>
+      <li>
         <a class="nav-link social-icon" href="https://www.linkedin.com/company/cannvest">
           <i class="fab fa-linkedin-in"></i>
         </a>
@@ -106,11 +109,11 @@
           <i class="fab fa-twitter"></i>
         </a>
       </li>
-          <li>
-            <a class="nav-link social-icon" href="https://wa.me/573505352868">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-          </li>      
+      <li>
+        <a class="nav-link social-icon" href="https://wa.me/573505352868">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
       <li v-if="this.$i18n.locale == 'en'">
         <a class="nav-link flag" href="/">
           <img src="/img/flags/ES.png" alt />
@@ -186,6 +189,17 @@ export default {
 </script>
 
 <style scoped>
+.nav-text {
+  font-size: 1em !important;
+  font-weight: 800;
+  background-color: transparent;
+  color: #00ab81;
+}
+
+.nav-text:hover {
+  color: #008262;
+}
+
 .nav-logo-lg {
   /* max-height: 75px; */
   height: 75px;

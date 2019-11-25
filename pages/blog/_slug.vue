@@ -20,13 +20,23 @@
         <div class="row">
           <div class="col-md-12">
             <div class="button-container">
-              <a href="https://twitter.com" class="btn btn-icon btn-lg btn-twitter btn-round">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://twitter.com" class="btn btn-icon btn-lg btn-facebook btn-round">
+              <a
+                href="https://facebook.com/cannvest"
+                class="btn btn-icon btn-lg btn-facebook btn-round"
+              >
                 <i class="fab fa-facebook-square"></i>
               </a>
-              <a href="https://twitter.com" class="btn btn-icon btn-lg btn-linkedin btn-round">
+              <a
+                href="https://twitter.com/cannvest"
+                class="btn btn-icon btn-lg btn-twitter btn-round"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/cannvest"
+                class="btn btn-icon btn-lg btn-linkedin btn-round"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
             </div>
