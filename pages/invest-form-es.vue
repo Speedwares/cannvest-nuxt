@@ -1,5 +1,6 @@
 <template>
   <div class="tf">
+    <h1 style="display: none">Formulario para inversionistas Cannvest</h1>
     <iframe
       id="typeform-full"
       width="100%"
@@ -21,9 +22,9 @@ export default {
     messages: {
       en: {
         meta: {
-          title: "Investor Form Cannvest",
-          description: "Investor Form Cannvest",
-          keywords: "crowdfunding, investors, form"
+          title: "Formulario para inversionistas Cannvest",
+          description: "Formulario para inversionistas Cannvest",
+          keywords: "crowdfunding, formulario, inversionistas"
         }
       },
       es: {

@@ -40,14 +40,14 @@ export default {
     messages: {
       en: {
         meta: {
-          title: "Cannvest",
+          title: "Cannvest | Crowdfunding for the cannabis industry",
           description: "Crowdfunding for the cannabis industry Colombia",
           keywords: "crowdfunding, cannabis, invest, investment, colombia"
         }
       },
       es: {
         meta: {
-          title: "Cannvest",
+          title: "Cannvest | Crowdfunding para la industria del cannabis",
           description: "Crowdfunding para la industria del cannabis Colombia",
           keywords: "crowdfunding, cannabis, invertir, inversión, colombia"
         }
