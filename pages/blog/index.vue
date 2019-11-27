@@ -1,201 +1,205 @@
 <template>
-  <div class="wrapper blog-posts">
-    <!-- HEADER SECTION -->
-    <div class="page-header page-header-small rellax-header">
-      <div class="page-header-image" style="background-image: url('img/bushes.jpg') ;"></div>
-      <div class="content-center">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Todas las historias de Cannvest</h2>
-            <a href="https://facebook.com/cannvest" class="btn btn-info btn-round btn-icon">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://twitter.com/cannvest" class="btn btn-info btn-round btn-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/cannvest"
-              class="btn btn-info btn-round btn-icon"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/cannvst/" class="btn btn-info btn-round btn-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
+  <div>
+    <div v-if="loading > 0">
+      <h1>Loading ...</h1>
+    </div>
+    <div v-else class="wrapper blog-posts">
+      <!-- HEADER SECTION -->
+      <div class="page-header page-header-small rellax-header">
+        <div class="page-header-image" style="background-image: url('img/bushes.jpg') ;"></div>
+        <div class="content-center">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Todas las historias de Cannvest</h2>
+              <a href="https://facebook.com/cannvest" class="btn btn-info btn-round btn-icon">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="https://twitter.com/cannvest" class="btn btn-info btn-round btn-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/cannvest"
+                class="btn btn-info btn-round btn-icon"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.instagram.com/cannvst/" class="btn btn-info btn-round btn-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="projects-4">
-      <div class="container-fluid">
-        <div v-if="blogPosts.length == 1" class="row">
-          <div class="col-md-6 px-0 ml-auto mr-auto text-center single-post">
-            <card
-              type="background"
-              class="card-fashion"
-              :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
-            >
-              <div class="card-title text-left">
-                <h2>
-                  <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
-                </h2>
-              </div>
-              <div class="card-footer text-left">
-                <div class="stats">
-                  <span>
-                    <i class="now-ui-icons users_circle-08"></i>
-                    {{ blogPosts[0].author }}
-                  </span>
-                  <span>
-                    <i class="now-ui-icons tech_watch-time"></i>
-                    {{ blogPosts[0].createdAt.slice(0, 10) }}
-                  </span>
+      <div class="projects-4">
+        <div class="container-fluid">
+          <div v-if="blogPosts.length == 1" class="row">
+            <div class="col-md-6 px-0 ml-auto mr-auto text-center single-post">
+              <card
+                type="background"
+                class="card-fashion"
+                :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
+              >
+                <div class="card-title text-left">
+                  <h2>
+                    <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
+                  </h2>
                 </div>
-                <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
-                  <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
-                  <a href="#">{{blogPosts[0].keywords[1]}}</a>
+                <div class="card-footer text-left">
+                  <div class="stats">
+                    <span>
+                      <i class="now-ui-icons users_circle-08"></i>
+                      {{ blogPosts[0].author }}
+                    </span>
+                    <span>
+                      <i class="now-ui-icons tech_watch-time"></i>
+                      {{ blogPosts[0].createdAt.slice(0, 10) }}
+                    </span>
+                  </div>
+                  <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
+                    <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
+                    <a href="#">{{blogPosts[0].keywords[1]}}</a>
+                  </div>
                 </div>
-              </div>
-            </card>
+              </card>
+            </div>
           </div>
-        </div>
 
-        <div v-if="blogPosts.length > 1" class="row">
-          <div class="col-md-6 px-0">
-            <card
-              type="background"
-              class="card-fashion"
-              :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
-            >
-              <div class="card-title text-left">
-                <h2>
-                  <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
-                </h2>
-              </div>
-              <div class="card-footer text-left">
-                <div class="stats">
-                  <span>
-                    <i class="now-ui-icons users_circle-08"></i>
-                    {{ blogPosts[0].author }}
-                  </span>
-                  <span>
-                    <i class="now-ui-icons tech_watch-time"></i>
-                    {{ blogPosts[0].createdAt.slice(0, 10) }}
-                  </span>
+          <div v-if="blogPosts.length > 1" class="row">
+            <div class="col-md-6 px-0">
+              <card
+                type="background"
+                class="card-fashion"
+                :style="{ 'background-image' : 'url(' + blogPosts[0].coverImage.url + ' )' }"
+              >
+                <div class="card-title text-left">
+                  <h2>
+                    <nuxt-link :to="'/blog/' + blogPosts[0].slug ">{{ blogPosts[0].title }}</nuxt-link>
+                  </h2>
                 </div>
-                <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
-                  <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
-                  <a href="#">{{blogPosts[0].keywords[1]}}</a>
-                </div>
-              </div>
-            </card>
-          </div>
-          <div class="col-md-3 px-0">
-            <div class="card card-fashion">
-              <div class="card-title">
-                <h4>
-                  <nuxt-link :to="'/blog/' + blogPosts[1].slug ">{{ blogPosts[1].title }}</nuxt-link>
-                </h4>
-              </div>
-              <div class="card-body">
-                <div class="card-footer">
+                <div class="card-footer text-left">
                   <div class="stats">
                     <span>
                       <i class="now-ui-icons users_circle-08"></i>
-                      {{ blogPosts[1].author }}
+                      {{ blogPosts[0].author }}
                     </span>
                     <span>
                       <i class="now-ui-icons tech_watch-time"></i>
-                      {{ blogPosts[1].createdAt.slice(0, 10) }}
+                      {{ blogPosts[0].createdAt.slice(0, 10) }}
                     </span>
                   </div>
-                  <div v-if="blogPosts[1].keywords.length > 0" class="stats-link pull-right">
-                    <a href="#">{{blogPosts[1].keywords[0]}}</a>&sbquo;
-                    <a href="#">{{blogPosts[1].keywords[1]}}</a>
+                  <div v-if="blogPosts[0].keywords.length > 0" class="stats-link pull-right">
+                    <a href="#">{{blogPosts[0].keywords[0]}}</a>&sbquo;
+                    <a href="#">{{blogPosts[0].keywords[1]}}</a>
+                  </div>
+                </div>
+              </card>
+            </div>
+            <div class="col-md-3 px-0">
+              <div class="card card-fashion">
+                <div class="card-title">
+                  <h4>
+                    <nuxt-link :to="'/blog/' + blogPosts[1].slug ">{{ blogPosts[1].title }}</nuxt-link>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <div class="card-footer">
+                    <div class="stats">
+                      <span>
+                        <i class="now-ui-icons users_circle-08"></i>
+                        {{ blogPosts[1].author }}
+                      </span>
+                      <span>
+                        <i class="now-ui-icons tech_watch-time"></i>
+                        {{ blogPosts[1].createdAt.slice(0, 10) }}
+                      </span>
+                    </div>
+                    <div v-if="blogPosts[1].keywords.length > 0" class="stats-link pull-right">
+                      <a href="#">{{blogPosts[1].keywords[0]}}</a>&sbquo;
+                      <a href="#">{{blogPosts[1].keywords[1]}}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-3 px-0">
+              <card
+                type="background"
+                class="card-fashion"
+                :style="{ 'background-image' : 'url(' + blogPosts[1].coverImage.url + ' )' }"
+              ></card>
+            </div>
           </div>
-          <div class="col-md-3 px-0">
-            <card
-              type="background"
-              class="card-fashion"
-              :style="{ 'background-image' : 'url(' + blogPosts[1].coverImage.url + ' )' }"
-            ></card>
-          </div>
-        </div>
-        <div v-if="blogPosts.length > 2" class="row">
-          <div class="col-md-3 px-0">
-            <card
-              type="background"
-              class="card-fashion"
-              :style="{ 'background-image' : 'url(' + blogPosts[2].coverImage.url + ' )' }"
-            ></card>
-          </div>
-          <div class="col-md-3 px-0">
-            <div class="card card-fashion">
-              <div class="card-title">
-                <h4>
-                  <nuxt-link :to="'/blog/' + blogPosts[2].slug ">{{ blogPosts[2].title }}</nuxt-link>
-                </h4>
-              </div>
-              <div class="card-body">
-                <div class="card-footer">
-                  <div class="stats">
-                    <span>
-                      <i class="now-ui-icons users_circle-08"></i>
-                      {{ blogPosts[2].author }}
-                    </span>
-                    <span>
-                      <i class="now-ui-icons tech_watch-time"></i>
-                      {{ blogPosts[2].createdAt.slice(0, 10) }}
-                    </span>
-                  </div>
-                  <div v-if="blogPosts[2].keywords.length > 0" class="stats-link pull-right">
-                    <a href="#">{{blogPosts[2].keywords[0]}}</a>&sbquo;
-                    <a href="#">{{blogPosts[2].keywords[1]}}</a>
+          <div v-if="blogPosts.length > 2" class="row">
+            <div class="col-md-3 px-0">
+              <card
+                type="background"
+                class="card-fashion"
+                :style="{ 'background-image' : 'url(' + blogPosts[2].coverImage.url + ' )' }"
+              ></card>
+            </div>
+            <div class="col-md-3 px-0">
+              <div class="card card-fashion">
+                <div class="card-title">
+                  <h4>
+                    <nuxt-link :to="'/blog/' + blogPosts[2].slug ">{{ blogPosts[2].title }}</nuxt-link>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <div class="card-footer">
+                    <div class="stats">
+                      <span>
+                        <i class="now-ui-icons users_circle-08"></i>
+                        {{ blogPosts[2].author }}
+                      </span>
+                      <span>
+                        <i class="now-ui-icons tech_watch-time"></i>
+                        {{ blogPosts[2].createdAt.slice(0, 10) }}
+                      </span>
+                    </div>
+                    <div v-if="blogPosts[2].keywords.length > 0" class="stats-link pull-right">
+                      <a href="#">{{blogPosts[2].keywords[0]}}</a>&sbquo;
+                      <a href="#">{{blogPosts[2].keywords[1]}}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 px-0">
-            <card
-              type="background"
-              class="card-fashion"
-              :style="{ 'background-image' : 'url(' + blogPosts[3].coverImage.url + ' )' }"
-            >
-              <div class="card-title text-left">
-                <h2>
-                  <nuxt-link :to="'/blog/' + blogPosts[3].slug ">{{ blogPosts[3].title }}</nuxt-link>
-                </h2>
-              </div>
-              <div class="card-footer text-left">
-                <div class="stats">
-                  <span>
-                    <i class="now-ui-icons users_circle-08"></i>
-                    {{ blogPosts[3].author }}
-                  </span>
-                  <span>
-                    <i class="now-ui-icons tech_watch-time"></i>
-                    {{ blogPosts[3].createdAt.slice(0, 10) }}
-                  </span>
+            <div class="col-md-6 px-0">
+              <card
+                type="background"
+                class="card-fashion"
+                :style="{ 'background-image' : 'url(' + blogPosts[3].coverImage.url + ' )' }"
+              >
+                <div class="card-title text-left">
+                  <h2>
+                    <nuxt-link :to="'/blog/' + blogPosts[3].slug ">{{ blogPosts[3].title }}</nuxt-link>
+                  </h2>
                 </div>
-                <div v-if="blogPosts[3].keywords.length > 0" class="stats-link pull-right">
-                  <a href="#">{{blogPosts[3].keywords[0]}}</a>&sbquo;
-                  <a href="#">{{blogPosts[3].keywords[1]}}</a>
+                <div class="card-footer text-left">
+                  <div class="stats">
+                    <span>
+                      <i class="now-ui-icons users_circle-08"></i>
+                      {{ blogPosts[3].author }}
+                    </span>
+                    <span>
+                      <i class="now-ui-icons tech_watch-time"></i>
+                      {{ blogPosts[3].createdAt.slice(0, 10) }}
+                    </span>
+                  </div>
+                  <div v-if="blogPosts[3].keywords.length > 0" class="stats-link pull-right">
+                    <a href="#">{{blogPosts[3].keywords[0]}}</a>&sbquo;
+                    <a href="#">{{blogPosts[3].keywords[1]}}</a>
+                  </div>
                 </div>
-              </div>
-            </card>
+              </card>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="main">
-      <div class="container">
-        <!-- //Sección de otros posts -->
-        <!-- <div class="section">
+      <div class="main">
+        <div class="container">
+          <!-- //Sección de otros posts -->
+          <!-- <div class="section">
                     <h3 class="title text-center">You may also be interested in</h3>
                     <br/>
                     <div class="row">
@@ -264,9 +268,9 @@
                             </div>
                         </div>
                     </div>
-        </div>-->
-      </div>
-      <!-- <div class="subscribe-line subscribe-line-white">
+          </div>-->
+        </div>
+        <!-- <div class="subscribe-line subscribe-line-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -293,9 +297,9 @@
                         </div>
                     </div>
                 </div>
-      </div>-->
-    </div>
-    <!-- <footer class="footer " data-background-color="black">
+        </div>-->
+      </div>
+      <!-- <footer class="footer " data-background-color="black">
             <div class="container">
                 <div class="content">
                     <div class="row">
@@ -428,7 +432,8 @@
                     {{year}} Creative Tim All Rights Reserved.
                 </div>
             </div>
-    </footer>-->
+      </footer>-->
+    </div>
   </div>
 </template>
 
@@ -474,9 +479,11 @@ export default {
     [FormGroupInput.name]: FormGroupInput
   },
   data: () => ({
-    blogPosts: null
+    blogPosts: null,
+    loading: 0
   }),
   apollo: {
+    $loadingKey: "loading",
     blogPosts: {
       query: posts
     }

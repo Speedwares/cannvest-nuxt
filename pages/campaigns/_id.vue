@@ -1,27 +1,31 @@
 <template>
-  <div class="wrapper product-page">
-    <div class="page-header page-header-mini rellax-header">
-      <div class="page-header-image" :style="{ 'background-image' : 'url(' + header + ' )' }"></div>
+  <div>
+    <div v-if="loading > 0">
+      <h1>Loading ...</h1>
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-5">
-            <campaign-overview-block :campaign="campaignDetails" />
-          </div>
-          <div class="col-md-6 ml-auto mr-auto">
-            <h2 class="title">{{ campaignDetails.title }}</h2>
-
-            <company-overview :campaign="campaignDetails" />
-          </div>
-        </div>
-
-        <project-description :campaign="campaignDetails" />
-        <campaign-team :campaign="campaignDetails" />
+    <div class="wrapper product-page">
+      <div class="page-header page-header-mini rellax-header">
+        <div class="page-header-image" :style="{ 'background-image' : 'url(' + header + ' )' }"></div>
       </div>
-    </div>
-    <documents />
-    <!-- <footer class="footer footer-big footer-white">
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5">
+              <campaign-overview-block :campaign="campaignDetails" />
+            </div>
+            <div class="col-md-6 ml-auto mr-auto">
+              <h2 class="title">{{ campaignDetails.title }}</h2>
+
+              <company-overview :campaign="campaignDetails" />
+            </div>
+          </div>
+
+          <project-description :campaign="campaignDetails" />
+          <campaign-team :campaign="campaignDetails" />
+        </div>
+      </div>
+      <documents />
+      <!-- <footer class="footer footer-big footer-white">
       <div class="container">
         <div class="content">
           <div class="row">
@@ -131,7 +135,8 @@
           {{year}} Creative Tim All Rights Reserved.
         </div>
       </div>
-    </footer>-->
+      </footer>-->
+    </div>
   </div>
 </template>
 <script>
@@ -253,6 +258,8 @@ export default {
     }
   },
   apollo: {
+    $loadingKey: "loading",
+
     campaignDetails: {
       query: campaign
     }

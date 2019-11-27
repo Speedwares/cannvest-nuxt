@@ -1,57 +1,61 @@
 <template>
-  <div class="wrapper blog-post">
-    <div class="page-header page-header-small rellax-header">
-      <div
-        class="page-header-image"
-        :style="{ 'background-image' : 'url(' +  blogPost.coverImage.url  + ' )' }"
-      ></div>
-      <div class="content-center">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">{{ blogPost.title }}</h2>
-            <h4>{{ blogPost.subtitle }}</h4>
-          </div>
-        </div>
-      </div>
+  <div>
+    <div v-if="loading > 0">
+      <h1>Loading ...</h1>
     </div>
-    <!-- Sección de social media para compartir -->
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="button-container">
-              <a
-                href="https://facebook.com/cannvest"
-                class="btn btn-icon btn-lg btn-facebook btn-round"
-              >
-                <i class="fab fa-facebook-square"></i>
-              </a>
-              <a
-                href="https://twitter.com/cannvest"
-                class="btn btn-icon btn-lg btn-twitter btn-round"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/company/cannvest"
-                class="btn btn-icon btn-lg btn-linkedin btn-round"
-              >
-                <i class="fab fa-linkedin"></i>
-              </a>
+    <div v-else class="wrapper blog-post">
+      <div class="page-header page-header-small rellax-header">
+        <div
+          class="page-header-image"
+          :style="{ 'background-image' : 'url(' +  blogPost.coverImage.url  + ' )' }"
+        ></div>
+        <div class="content-center">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">{{ blogPost.title }}</h2>
+              <h4>{{ blogPost.subtitle }}</h4>
             </div>
           </div>
         </div>
       </div>
-      <!-- Sección de contenido -->
-
+      <!-- Sección de social media para compartir -->
       <div class="section">
         <div class="container">
           <div class="row">
-            <div class="col-md-8 ml-auto mr-auto">
-              <vue-markdown>{{ blogPost.content.markdown }}</vue-markdown>
+            <div class="col-md-12">
+              <div class="button-container">
+                <a
+                  href="https://facebook.com/cannvest"
+                  class="btn btn-icon btn-lg btn-facebook btn-round"
+                >
+                  <i class="fab fa-facebook-square"></i>
+                </a>
+                <a
+                  href="https://twitter.com/cannvest"
+                  class="btn btn-icon btn-lg btn-twitter btn-round"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
 
-              <!-- <h3 class="title">The Castle Looks Different at Night...</h3>
+                <a
+                  href="https://www.linkedin.com/company/cannvest"
+                  class="btn btn-icon btn-lg btn-linkedin btn-round"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sección de contenido -->
+
+        <div class="section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 ml-auto mr-auto">
+                <vue-markdown>{{ blogPost.content.markdown }}</vue-markdown>
+
+                <!-- <h3 class="title">The Castle Looks Different at Night...</h3>
               <p>
                 This is the paragraph where you can write more details about your product. Keep you user
                 engaged by providing meaningful information. Remember that by this time, the user is
@@ -61,22 +65,22 @@
                 <br />And now I look and look around and there’s so many Kanyes I've been trying to
                 figure out the bed design for the master bedroom at our Hidden Hills compound... and
                 thank you for turning my personal jean jacket into a couture piece.
-              </p>-->
-              <!-- <p class="blockquote blockquote-primary">
+                </p>-->
+                <!-- <p class="blockquote blockquote-primary">
                                 “And thank you for turning my personal jean jacket into a couture piece.”
                                 <br>
                                 <br>
                                 <small>
                                     Kanye West, Producer.
                                 </small>
-              </p>-->
+                </p>-->
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Sección de otras historias. A dinamizar una vez tengamos más posts -->
-      <!-- <div class="section">
+        <!-- Sección de otras historias. A dinamizar una vez tengamos más posts -->
+        <!-- <div class="section">
         <div class="container">
           <div class="col-md-12">
             <h2 class="title text-center">Similar Stories</h2>
@@ -152,7 +156,8 @@
             </div>
           </div>
         </div>
-      </div>-->
+        </div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -210,6 +215,7 @@ export default {
     };
   },
   apollo: {
+    $loadingKey: "loading",
     blogPost: {
       query: post,
       variables() {

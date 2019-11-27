@@ -1,72 +1,77 @@
 <template>
-  <div class="wrapper ecommerce-page">
-    <el-carousel height="100vh">
-      <el-carousel-item v-for="item in carousel" :key="item.id">
-        <div class="page-header header-filter">
-          <div
-            class="page-header-image"
-            :style="{ 'background-image' : 'url(' +  item.img  + ' )' }"
-          ></div>
-          <div class="content-center text-center">
-            <div class="row">
-              <div class="col-md-8 ml-auto mr-auto">
-                <h1 class="title">{{ item.title }}</h1>
-                <h4 class="description text-white">{{ item.description }}</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </el-carousel-item>
-    </el-carousel>
-    <div class="main">
-      <div class="section">
-        <div class="container">
-          <h2 class="section-title">Campañas activas</h2>
-
-          <ul>
-            <li v-for="item in carousel" :key="item.id">{{ item.title }} {{ item.img }}</li>
-          </ul>
-
-          <div class="row">
-            <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign=" campaignDetailses[2] " />
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign="campaignDetailses[2]" />
-            </div>
-            <div class="col-md-4 col-sm-6">
-              <campaign-short-overview :campaign="campaignDetailses[2]" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="subscribe-line subscribe-line-image"
-        style="background-image: url('img/bg43.jpg')"
-      >
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-              <div class="text-center">
-                <h4 class="title">Suscríbase a nuestro boletín</h4>
-                <p
-                  class="description"
-                >Entérese de las próximas campañas y de las últimas novedades de Cannvest</p>
-              </div>
-              <card type="raised" class="card-form-horizontal">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <fg-input
-                      placeholder="Correo electrónico..."
-                      addon-left-icon="now-ui-icons ui-1_email-85"
-                    ></fg-input>
-                  </div>
-                  <div class="col-sm-4">
-                    <n-button type="info" round block>Suscríbase</n-button>
-                  </div>
+  <div>
+    <div v-if="loading > 0">
+      <h1>Loading ...</h1>
+    </div>
+    <div v-else class="wrapper ecommerce-page">
+      <el-carousel height="100vh">
+        <el-carousel-item v-for="item in carousel" :key="item.id">
+          <div class="page-header header-filter">
+            <div
+              class="page-header-image"
+              :style="{ 'background-image' : 'url(' +  item.img  + ' )' }"
+            ></div>
+            <div class="content-center text-center">
+              <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                  <h1 class="title">{{ item.title }}</h1>
+                  <h4 class="description text-white">{{ item.description }}</h4>
                 </div>
-              </card>
+              </div>
+            </div>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
+      <div class="main">
+        <div class="section">
+          <div class="container">
+            <h2 class="section-title">Campañas activas</h2>
+
+            <ul>
+              <li v-for="item in carousel" :key="item.id">{{ item.title }} {{ item.img }}</li>
+            </ul>
+
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <campaign-short-overview :campaign=" campaignDetailses[2] " />
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <campaign-short-overview :campaign="campaignDetailses[2]" />
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <campaign-short-overview :campaign="campaignDetailses[2]" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="subscribe-line subscribe-line-image"
+          style="background-image: url('img/bg43.jpg')"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div class="text-center">
+                  <h4 class="title">Suscríbase a nuestro boletín</h4>
+                  <p
+                    class="description"
+                  >Entérese de las próximas campañas y de las últimas novedades de Cannvest</p>
+                </div>
+                <card type="raised" class="card-form-horizontal">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <fg-input
+                        placeholder="Correo electrónico..."
+                        addon-left-icon="now-ui-icons ui-1_email-85"
+                      ></fg-input>
+                    </div>
+                    <div class="col-sm-4">
+                      <n-button type="info" round block>Suscríbase</n-button>
+                    </div>
+                  </div>
+                </card>
+              </div>
             </div>
           </div>
         </div>
@@ -155,6 +160,8 @@ export default {
     ]
   }),
   apollo: {
+    $loadingKey: "loading",
+
     campaignDetailses: {
       query: campaigns
     }
