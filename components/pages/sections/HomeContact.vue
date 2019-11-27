@@ -25,7 +25,7 @@
               <br />
               <a href="mailto:contact@cannvesto.co" class="contact-links">contact@cannvest.co</a>
               <br />
-              <a href="callto:+57 350 5352868" class="contact-links">+57 350 5352868</a>
+              <a href="callto:+573505352868" class="contact-links">+57 350 5352868</a>
             </p>
           </info-section>
         </div>

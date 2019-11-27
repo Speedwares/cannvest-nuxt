@@ -38,7 +38,7 @@
                 <div class="col-lg-6 col-md-6">
                   <HomeTeamCards
                     name="Andrés Rojas"
-                    :job="$t('message.blockchain_consultant_a')"
+                    job="CTO"
                     :description="$t('message.cto_description')"
                     linkedIn="https://www.linkedin.com/in/acrm/"
                     email="mailto:andres.r@cannvest.co"

@@ -80,7 +80,6 @@ module.exports = {
 
 
   head: {
-    title: "Cannvest",
     meta: [{
         charset: "utf-8"
       },
