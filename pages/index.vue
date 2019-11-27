@@ -32,6 +32,45 @@ export default {
     Team,
     Contact,
     Allies
+  },
+  nuxtI18n: {
+    seo: false
+  },
+  i18n: {
+    messages: {
+      en: {
+        meta: {
+          title: "Cannvest",
+          description: "Crowdfunding for the cannabis industry Colombia",
+          keywords: "crowdfunding, cannabis, invest, investment, colombia"
+        }
+      },
+      es: {
+        meta: {
+          title: "Cannvest",
+          description: "Crowdfunding para la industria del cannabis Colombia",
+          keywords: "crowdfunding, cannabis, invertir, inversión, colombia"
+        }
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.$t("meta.title"),
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("meta.description")
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.$t("meta.keywords")
+        }
+      ]
+    };
   }
 };
 </script>

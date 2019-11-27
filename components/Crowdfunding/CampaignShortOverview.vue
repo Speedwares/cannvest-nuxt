@@ -7,7 +7,7 @@
       </div>
       <img slot="avatar" class="img img-raised company-logo" :src="campaign.company.logo.url" />
       <div class="card-body">
-        <a :href="website">
+        <a :href="campaign.company.website">
           <h4 class="card-title">{{ campaign.company.razonSocial }}</h4>
         </a>
         <h6 class="category text-gray">{{ campaign.title }}</h6>
@@ -59,6 +59,18 @@
   </nuxt-link>
   <!-- </nuxt-child> -->
 </template>
+
+<style>
+.progress {
+  background: rgba(0, 128, 157, 0.4) !important;
+}
+.progress-bar {
+  background: rgba(0, 128, 157, 1) !important;
+}
+.progress-value {
+  color: #00809d !important;
+}
+</style>
 
 <style scoped>
 .price-container {

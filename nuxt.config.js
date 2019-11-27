@@ -87,15 +87,6 @@ module.exports = {
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no"
-      },
-      {
-        name: "keywords",
-        content: "crowdfunding, cannabis, blockchain, colombia, invertir, invest"
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: "Crowdfunding for the cannabis industry in Colombia. Crowdfunding para la industria del cannabis en Colombia"
       }
     ],
     link: [{
@@ -218,7 +209,9 @@ module.exports = {
     langDir: "lang/",
     defaultLocale: "es",
     lazy: true,
-    parsePages: false
+    parsePages: false,
+    baseUrl: "https://cannvest.co",
+    seo: false
   },
   googleAnalytics: {
     id: "UA-141781891-1",

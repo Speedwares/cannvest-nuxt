@@ -151,6 +151,7 @@ const campaign = gql`
       id
       title
       description
+      keywords
       fundingGoal
       pledgedFunds
       backersNumber
@@ -255,6 +256,32 @@ export default {
     campaignDetails: {
       query: campaign
     }
+  },
+  nuxtI18n: {
+    seo: false
+  },
+  head() {
+    let title = `${this.campaignDetails.title}`;
+    let description = `${this.campaignDetails.description}`;
+    let keywords = `${this.campaignDetails.keywords}`;
+
+    console.log(keywords);
+    return {
+      title: title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: description
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: keywords
+        }
+      ]
+    };
   }
 };
 </script>

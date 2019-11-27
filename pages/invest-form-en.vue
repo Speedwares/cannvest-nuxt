@@ -13,7 +13,46 @@
 
 <script>
 export default {
-  layout: "white-nav"
+  layout: "white-nav",
+  nuxtI18n: {
+    seo: false
+  },
+  i18n: {
+    messages: {
+      en: {
+        meta: {
+          title: "Investor Form Cannvest",
+          description: "Investor Form Cannvest",
+          keywords: "crowdfunding, investors, form"
+        }
+      },
+      es: {
+        meta: {
+          title: "Formulario para inversionistas Cannvest",
+          description: "Formulario para inversionistas Cannvest",
+          keywords: "crowdfunding, formulario, inversionistas"
+        }
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.$t("meta.title"),
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("meta.description")
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.$t("meta.keywords")
+        }
+      ]
+    };
+  }
 };
 </script>
 

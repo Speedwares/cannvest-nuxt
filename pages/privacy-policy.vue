@@ -298,7 +298,46 @@
 <script>
 export default {
   name: "about-us",
-  layout: "white-nav"
+  layout: "white-nav",
+  nuxtI18n: {
+    seo: false
+  },
+  i18n: {
+    messages: {
+      en: {
+        meta: {
+          title: "Privacy Policy Cannvest",
+          description: "Privacy Policy Cannvest",
+          keywords: "privacy, policy, cannvest"
+        }
+      },
+      es: {
+        meta: {
+          title: "Política de Privacidad Cannvest",
+          description: "Política de Privacidad Cannvest",
+          keywords: "política, privacidad, cannvest"
+        }
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.$t("meta.title"),
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("meta.description")
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.$t("meta.keywords")
+        }
+      ]
+    };
+  }
 };
 </script>
 <style>

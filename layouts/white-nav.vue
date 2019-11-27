@@ -15,6 +15,9 @@ export default {
     MainFooter,
     CannvestNavbar,
     CannvestFooter
+  },
+  head() {
+    return this.$nuxtI18nSeo();
   }
 };
 </script>

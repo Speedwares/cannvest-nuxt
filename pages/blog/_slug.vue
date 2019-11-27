@@ -186,6 +186,7 @@ const post = gql`
         markdown
       }
       createdAt
+      keywords
     }
   }
 `;
@@ -221,6 +222,32 @@ export default {
   mounted() {
     initParallax();
     console.log();
+  },
+  nuxtI18n: {
+    seo: false
+  },
+  head() {
+    let title = `${this.blogPost.title}`;
+    let description = `${this.blogPost.title}` + " post";
+    let keywords = `${this.blogPost.keywords}`;
+
+    console.log(keywords);
+    return {
+      title: title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: description
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: keywords
+        }
+      ]
+    };
   }
 };
 </script>

@@ -69,6 +69,18 @@
   </div>
 </template>
 
+<style>
+.progress {
+  background: rgba(0, 128, 157, 0.4) !important;
+}
+.progress-bar {
+  background: rgba(0, 128, 157, 1) !important;
+}
+.progress-value {
+  color: #00809d !important;
+}
+</style>
+
 <style scoped>
 .invest-button {
   background-color: #00809d;

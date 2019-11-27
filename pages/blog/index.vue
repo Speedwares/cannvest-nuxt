@@ -489,6 +489,45 @@ export default {
   },
   mounted() {
     initParallax();
+  },
+  nuxtI18n: {
+    seo: false
+  },
+  i18n: {
+    messages: {
+      en: {
+        meta: {
+          title: "Cannvest Blog",
+          description: "Entradas del blog de Cannvest",
+          keywords: "crowdfunding, cannabis, blog"
+        }
+      },
+      es: {
+        meta: {
+          title: "Cannvest blog",
+          description: "Cannvest blog entries",
+          keywords: "crowdfunding, cannabis, blog"
+        }
+      }
+    }
+  },
+  head() {
+    return {
+      title: this.$t("meta.title"),
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("meta.description")
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.$t("meta.keywords")
+        }
+      ]
+    };
   }
 };
 </script>
