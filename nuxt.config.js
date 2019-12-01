@@ -12,7 +12,6 @@
 // const GRAPHCMS_API =
 //   'https://api-useast.graphcms.com/v1/ck227pg6r0l2f019eexyr235y/master'
 
-
 // const client = new ApolloClient({
 //   link: new HttpLink({
 //     uri: GRAPHCMS_API,
@@ -21,7 +20,6 @@
 //   cache: new InMemoryCache(),
 //   defaultHttpLink: false
 // })
-
 
 // const campaigns = gql `
 //   query {
@@ -60,24 +58,22 @@ module.exports = {
    */
 
   router: {
-    base: '/',
-    linkExactActiveClass: 'active',
-    mode: 'history',
-    scrollBehavior: (to) => {
+    base: "/",
+    linkExactActiveClass: "active",
+    mode: "history",
+    scrollBehavior: to => {
       if (to.hash) {
         return {
           selector: to.hash
-        }
+        };
       } else {
         return {
           x: 0,
           y: 0
-        }
+        };
       }
     }
   },
-
-
 
   head: {
     meta: [{
@@ -91,7 +87,7 @@ module.exports = {
     link: [{
         rel: "icon",
         type: "image/x-icon",
-        href: "/cannvest-logo-icon.ico"
+        href: "/favicon.ico"
       },
       {
         rel: "stylesheet",
@@ -132,7 +128,8 @@ module.exports = {
       src: "~/plugins/now-ui-kit"
     },
     {
-      src: "~/plugins/firebase.js"
+      src: "~/plugins/firebase.js",
+      ssr: false
     },
     {
       src: "~/plugins/hotjar.js",
@@ -141,6 +138,9 @@ module.exports = {
     {
       src: "~/plugins/facebook.js",
       ssr: false
+    },
+    {
+      src: "~/plugins/element-ui.js"
     }
   ],
   /*
@@ -150,7 +150,10 @@ module.exports = {
     "@nuxtjs/pwa",
     "nuxt-i18n",
     "@nuxtjs/google-analytics",
-    "@nuxtjs/apollo"
+    "@nuxtjs/apollo",
+    "@nuxtjs/axios",
+    "@nuxtjs/auth",
+    "@nuxtjs/proxy"
   ],
   /*
    ** Build configuration
@@ -182,9 +185,7 @@ module.exports = {
       "/campaigns/ck2bwebuaau770a30sqfgopcp",
       "/blog/primer-post",
       "/blog/segundo-post",
-      "/blog/tercer-post",
-
-
+      "/blog/tercer-post"
     ]
     // routes: dynamicRoutes
   },
@@ -224,5 +225,21 @@ module.exports = {
     clientConfigs: {
       default: "@/apollo/client-configs/default.js"
     }
-  }
+  },
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    "/v1/cannvestco": {
+      target: "https://api.sandbox.crowdvalley.com",
+      headers: {
+        "Connection": "keep-alive"
+      },
+      pathRewrite: {
+        "^/v1/cannvestco": "/"
+      },
+      changeOrigin: true
+    },
+  },
+  // proxy: ["https://api.sandbox.crowdvalley.com/v1/cannvestco"]
 };
