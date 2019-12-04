@@ -142,13 +142,15 @@ export default {
         };
 
         const postData = {
-          email: "davidnuxt01@test.com",
-          password: "Password123!",
-          url: "https://www.yoursite.com/verify-email"
+          "email": "davidnuxt01@test.com",
+          "password": "Password123!",
+          "url": "https://www.yoursite.com/verify-email"
         };
 
         const postUrl =
-          "https://api.sandbox.crowdvalley.com/v1/cannvestco/users";
+          "http://localhost:3000/users";
+           this.$axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+          this.$axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
         let { aut } = await this.$axios.post(postUrl, postData, axiosConfig);
 

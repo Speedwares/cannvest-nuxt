@@ -230,15 +230,10 @@ module.exports = {
     proxy: true
   },
   proxy: {
-    "/v1/cannvestco": {
-      target: "https://api.sandbox.crowdvalley.com",
-      headers: {
-        "Connection": "keep-alive"
-      },
-      pathRewrite: {
-        "^/v1/cannvestco": "/"
-      },
-      changeOrigin: true
+    "/users": {
+      target: "https://api.sandbox.crowdvalley.com/v1/cannvestco/users",
+      changeOrigin: true, 
+      
     },
   },
   // proxy: ["https://api.sandbox.crowdvalley.com/v1/cannvestco"]
