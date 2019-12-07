@@ -231,7 +231,7 @@ module.exports = {
   },
   proxy: {
     "/users": {
-      target: "https://api.sandbox.crowdvalley.com/v1/cannvestco/users",
+      target: "https://api.sandbox.crowdvalley.com/v1/cannvestco",
       changeOrigin: true, 
       
     },
